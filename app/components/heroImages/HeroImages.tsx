@@ -74,8 +74,8 @@ const HeroImages: React.FC = () => {
 
     // setting the speed of the images here
     const { pos1, pos2 } = positions.current;
-    pos1.y -= 0.3;
-    pos2.y -= 0.4;
+    pos1.y -= 0.15;
+    pos2.y -= 0.15;
 
     requestAnimationFrame(renderAnimation);
   };
