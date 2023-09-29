@@ -1,0 +1,18 @@
+@use 'sass:math';
+
+.container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 100vh;
+    // background: pink;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.set {
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
+}

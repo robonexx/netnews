@@ -1,0 +1,26 @@
+.container {
+    position: relative;
+    margin-bottom: 140px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    &.alignRight {
+        align-self: flex-end;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:nth-child(1) {
+        align-self: center;
+        margin-right: 58px;
+    }
+
+    &:nth-child(3) {
+        align-self: flex-end;
+    }
+
+    &:nth-child(4) {
+        margin-left: 110px;
+    }
+}
