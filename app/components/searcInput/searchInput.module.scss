@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    align-items: center;
+
+    input {
+        outline: none;
+        color: #121212;
+        background-color: lightgray;
+        padding: 4px 8px;
+    }
+
+    .searchIcon {
+        color: #121212;
+        font-size: 1.5rem;
+    }
+}

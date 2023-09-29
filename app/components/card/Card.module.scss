@@ -1,0 +1,45 @@
+.cardWrapper {
+    position: relative;
+    width: 526px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #23212262; */
+    border-radius: 1rem;
+    border: 2px solid #888;
+    pointer-events: none;
+
+    .img {
+        position: relative;
+        width: 100%;
+        height: 260px;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+
+        > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .info {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    
+        &>h4 {
+            font-size: 1.75rem;
+            font-weight: 400;
+        }
+    
+        &>p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #888;
+        }
+}
+}
