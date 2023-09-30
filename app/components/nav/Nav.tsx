@@ -7,7 +7,7 @@ interface NavProps {
   children: ReactNode;
 }
 
-export default function Nav(props: NavProps): JSX.Element {
+export default function Nav({children}: NavProps): JSX.Element {
   const [click, setClick] = useState(false);
   const [navActive, setNavActive] = useState(false);
 
@@ -55,7 +55,7 @@ export default function Nav(props: NavProps): JSX.Element {
           click ? `${styles.nav_menu} ${styles.active}` : `${styles.nav_menu}`
         }
       >
-        {props.children}
+        {children}
       </ul>
     </nav>
   );

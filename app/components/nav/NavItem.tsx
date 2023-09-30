@@ -9,7 +9,12 @@ interface NavItemProps {
   children: ReactNode;
 }
 
-export default function NavItem(props: NavItemProps): JSX.Element {
+export default function NavItem({
+  children,
+  title,
+  url,
+  icon,
+}: NavItemProps): JSX.Element {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -46,20 +51,15 @@ export default function NavItem(props: NavItemProps): JSX.Element {
   return (
     <li
       className={styles.nav_item}
-      key={props.title}
+      key={title}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <a
-        href={props.url}
-        onClick={closeMobileMenu}
-        className={styles.nav_links}
-      >
-        <span className={styles.link_icon}>{props.icon}</span>
-        <span className={styles.link_title}>{props.title}</span>
+      <a href={url} onClick={closeMobileMenu} className={styles.nav_links}>
+        <span className={styles.link_icon}>{icon}</span>
+        <span className={styles.link_title}>{title}</span>
       </a>
-      {dropdown && props.children}
-      {click && props.children}
+      {click && children}
     </li>
   );
 }
