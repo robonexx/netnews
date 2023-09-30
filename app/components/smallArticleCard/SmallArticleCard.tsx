@@ -3,21 +3,15 @@ import styles from './TinyCard.module.scss';
 
 interface SmallArticleCardProps {
   title: string;
-  desc?: string;
 }
 
-const SmallArticleCard: React.FC<SmallArticleCardProps> = ({ title, desc }) => {
+const SmallArticleCard: React.FC<SmallArticleCardProps> = ({ title }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
-              <h3>{title}</h3>
-              <p>{desc}</p>
+        <h4>{title}</h4>
       </div>
-      <div
-        className={styles.baseline}
-          >
-             
-      </div>
+      <div className={styles.border}></div>
     </div>
   );
 };

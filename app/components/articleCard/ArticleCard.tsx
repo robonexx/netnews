@@ -2,16 +2,16 @@ import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import styles from './Card.module.scss';
 import IMG from '@/public/images/01.jpg';
-import { NewsItem } from '@/app/types/Types';
+import { newsType } from '@/app/types/Types';
 
 
-const ArticleCard = ({ data }: NewsItem) => {
+const ArticleCard = ({ title, description, urlToImage }: newsType) => {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.img}>
         <Image
           alt='news image'
-          src={IMG}
+          src={urlToImage}
           fill
           priority
           className={styles.img}
@@ -19,8 +19,9 @@ const ArticleCard = ({ data }: NewsItem) => {
         />
       </div>
       <div className={styles.info}>
+        <p>written by</p>
         <h4>{title}</h4>
-        <p>{desc}</p>
+        <p>{description}</p>
       </div>
     </div>
   );
