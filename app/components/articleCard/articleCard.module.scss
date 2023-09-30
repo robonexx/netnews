@@ -1,5 +1,7 @@
 .cardWrapper {
     position: relative;
+    margin: 1rem;
+    padding: 4px;
     width: 526px;
     height: 400px;
     display: flex;
@@ -23,6 +25,11 @@
             object-fit: cover;
             object-position: center;
         }
+    }
+
+    a {
+        font-size: 1rem;
+        font-weight: bold;
     }
 
     .info {

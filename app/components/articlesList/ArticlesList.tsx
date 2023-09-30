@@ -5,6 +5,8 @@ export const NewsList = async () => {
     const news = await getTopNews()
     const filterNews = RemoveDuplicateData(news)
   return (
-    <div>NewsList</div>
+    <div>
+      
+    </div>
   )
 }

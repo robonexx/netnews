@@ -2,14 +2,10 @@ import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import styles from './Card.module.scss';
 import IMG from '@/public/images/01.jpg';
+import { NewsItem } from '@/app/types/Types';
 
-type CardProps = {
-  title: string;
-  desc: string;
- 
-};
 
-const Card = ({ title, desc }: CardProps) => {
+const ArticleCard = ({ data }: NewsItem) => {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.img}>
@@ -30,4 +26,4 @@ const Card = ({ title, desc }: CardProps) => {
   );
 };
 
-export default Card;
+export default ArticleCard;
