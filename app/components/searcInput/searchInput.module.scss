@@ -1,6 +1,10 @@
 .form {
+    position: absolute;
+    right: 2vw;
     display: flex;
     align-items: center;
+    width: fit-content;
+    align-self: flex-end;
 
     input {
         outline: none;
@@ -9,8 +13,16 @@
         padding: 4px 8px;
     }
 
+    > button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+    }
+
     .searchIcon {
-        color: #121212;
+        color: #dbdbdb;
         font-size: 1.5rem;
+
+        
     }
 }

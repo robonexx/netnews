@@ -6,6 +6,7 @@ import Nav from '../nav/Nav';
 
 // styles
 import styles from './Header.module.scss';
+import SearchInput from '../searcInput/SearchInput';
 
 const variants = {
   notVisible: { opacity: 0, x: '-100%' },
@@ -37,15 +38,11 @@ const variants = {
 };
 
 export default function Header(props: any) {
-
   const path = usePathname();
-
 
   return (
     <header className={styles.header}>
-      <Link href='/'>
-          NEWS NET
-      </Link>
+      <Link href='/'>NEWS NET</Link>
       {props.children}
       <motion.hr
         className={styles.border_bottom}
@@ -53,6 +50,7 @@ export default function Header(props: any) {
         animate={{ width: '100%' }}
         transition={{ duration: 1.6, delay: 0.3, ease: 'easeInOut' }}
       />
+      <SearchInput />
       <Nav />
     </header>
   );
