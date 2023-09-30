@@ -1,30 +1,29 @@
-'use client';
 import { useState, FormEvent } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import styles from './searchInput.module.scss';
 
-const SearchInput = () => {
-  const [keywords, setKeywords] = useState<string>('');
+const SearchInput: React.FC = () => {
+  const [query, setQuery] = useState<string>('');
   const router = useRouter();
 
-  const searchKeywords = (e: FormEvent) => {
+  const searchQuery = (e: FormEvent) => {
     e.preventDefault();
-    if (!keywords) {
+    if (!query) {
       router.push('/');
     } else {
-      router.push(`/search?q=${keywords}`);
+      router.push(`/search?q=${query}`);
     }
   };
 
   return (
-    <form className={styles.form} onSubmit={searchKeywords}>
+    <form className={styles.form} onSubmit={searchQuery}>
       <input
         type='text'
         placeholder='ex. culture, tech, latest'
         className=''
-        onChange={(e) => setKeywords(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
       />
       <button type='submit'>
         <BiSearch className={styles.searchIcon} />

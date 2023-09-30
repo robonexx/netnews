@@ -11,7 +11,7 @@ const ArticleCard = ({ title, description, urlToImage, source }: newsType) => {
       <div className={styles.img}>
         <Image
           alt='news image'
-          src={urlToImage}
+          src={urlToImage ? urlToImage : IMG}
           fill
           priority
           className={styles.img}

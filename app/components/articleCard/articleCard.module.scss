@@ -17,7 +17,9 @@
   .img {
     position: relative;
     width: 100%;
-    height: 260px;
+    min-height: 148px;
+    max-height: 260px;
+    height: 220px;
     border-top-right-radius: 0.2rem;
     border-top-left-radius: 0.2rem;
 
@@ -33,10 +35,10 @@
     position: absolute;
     z-index: 10;
     bottom: 0;
-    left: 0;
+    left: auto;
+    right: 0;
     color: black;
     font-size: 1rem;
-    font-weight: bold;
     cursor: pointer;
     pointer-events: auto;
   }
@@ -49,13 +51,15 @@
 
     & > h4 {
       color: $color-client-3;
-      font-size: 1.75rem;
-      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      font-weight: 600;
     }
 
     & > p {
       font-size: 1rem;
-      font-weight: 500;
+      line-height: 1.5;
+      font-weight: 400;
       color: #888;
     }
   }

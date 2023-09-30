@@ -8,8 +8,9 @@ export interface newsType {
   description: string;
   url?: string;
   urlToImage: string;
-  publishedAt?: string;
+  publishedAt?: string | undefined;
   content?: string;
+  params?: string;
 }
 
 export type NewsItem = {
