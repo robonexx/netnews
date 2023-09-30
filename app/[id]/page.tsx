@@ -32,26 +32,25 @@ function Article() {
                     </p>
                     <h2>{news.title}</h2>
                     <h4>{news.description}</h4>
-                    <hr className={styles.divider} />
-                    <div className={styles.content} />
-                    {news.content}
-                  </article>
-
-                  <article className={styles.media_wrapper}>
-                    {news.urlToImage ? (
-                      <Image
-                        src={news.urlToImage}
-                        alt='Article media'
-                        width={500}
-                        height={300}
-                      />
+                    <div className={styles.media_wrapper}>
+                      {news.urlToImage ? (
+                        <div className={styles.img}>
+                          <Image
+                            src={news.urlToImage}
+                            alt='Article media'
+                            fill
+                          />
+                        </div>
                     ) : (
                       <div className={styles.overlay}>
                         <div className={styles.logo}></div>
                       </div>
                     )}
-
                     <p className={styles.figcaption}>By:{news.author}</p>
+                  </div>
+                    <hr className={styles.divider} />
+                    <div className={styles.content} />
+                    {news.content}
                   </article>
                 </>
               );
