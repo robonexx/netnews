@@ -1,5 +1,5 @@
 $minColWidth: 20rem;
-$gridGap: 25px;
+$gridGap: 3.33%;
 
 .hero {
  width: 100%;
@@ -25,5 +25,13 @@ $gridGap: 25px;
     & + .grid {
         margin-top: $gridGap;
     }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 30%);
+      }
+  
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 40%);
+      }
 }
 }
