@@ -12,6 +12,7 @@
   border-radius: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+          filter: drop-shadow(1px 1px 5px rgba(255, 255, 255, 0.225));
 }
 
 .nav.scroll {
@@ -80,7 +81,7 @@
   }
 
   .nav.open {
-    height: 40vh;
+    height: 30vh;
   }
   
 .nav.border {
@@ -93,9 +94,9 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      -webkit-transform: translateY(110%);
-          -ms-transform: translateY(110%);
-              transform: translateY(110%);
+      -webkit-transform: translateY(250%);
+          -ms-transform: translateY(250%);
+              transform: translateY(250%);
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
           -ms-flex-direction: row;

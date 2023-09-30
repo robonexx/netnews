@@ -46,10 +46,7 @@ export default function Header(props: any) {
   return (
     <header className={styles.header}>
       <Link href='/'>
-              <motion.div
-        >
-          <FiHome />
-        </motion.div>
+          NEWS NET
       </Link>
       <Nav />
       {props.children}
