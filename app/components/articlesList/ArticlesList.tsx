@@ -1,12 +1,15 @@
-import { RemoveDuplicateData } from "@/app/utils/RemoveDublicateData";
-import { getTopNews } from "@/app/lib/api";
+/* import { RemoveDuplicateData } from "@/app/utils/RemoveDublicateData"; */
+/* import { getTopNews } from "@/app/lib/api"; */
+import { dummyNews } from "@/app/assets/DummyData";
 
-export const NewsList = async () => {
-    const news = await getTopNews()
-    const filterNews = RemoveDuplicateData(news)
+export const NewsList = () => {
+    const news = dummyNews
+  /* const filterNews = RemoveDuplicateData(news) */
+  
+  console.log(news)
   return (
     <div>
-      
+
     </div>
   )
 }
