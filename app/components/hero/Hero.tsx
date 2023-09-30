@@ -8,19 +8,18 @@ import styles from './hero.module.scss';
 const Hero: React.FC = async () => {
   const data = await getTopNews();
 
-  console.log(data.articles);
   return (
     <div className={styles.hero}>
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
           {data &&
-            data.articles.slice(0, 1).map((item: newsType) => (
-              <div key={item.source.id}>
+            data.articles.slice(0, 1).map((article: newsType) => (
+              <div key={article.source.id}>
                 <ArticleCard
-                  title={item?.title}
-                  description={item?.description}
-                  urlToImage={item?.urlToImage}
-                  source={item?.source}
+                  title={article?.title}
+                  description={article?.description}
+                  urlToImage={article?.urlToImage}
+                  source={article?.source}
                 />
               </div>
             ))}
@@ -28,12 +27,12 @@ const Hero: React.FC = async () => {
           <div className={`${styles.grid_wrap} ${styles.grid_group}`}>
             <div className={styles.grid}>
               {data &&
-                data.articles.slice(1, 5).map((item: newsType) => (
-                  <div key={item.source.id}>
+                data.articles.slice(1, 5).map((article: newsType) => (
+                  <div key={article.source.id}>
                     <SmallArticleCard
-                      title={item?.title}
-                      source={item?.source}
-                      urlToImage={item?.urlToImage}
+                      title={article?.title}
+                      source={article?.source}
+                      urlToImage={article?.urlToImage}
                     />
                   </div>
                 ))}
@@ -45,13 +44,13 @@ const Hero: React.FC = async () => {
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
           {data &&
-            data.articles.slice(-3).map((item: newsType) => (
-              <div key={item.source.id}>
+            data.articles.slice(-3).map((article: newsType) => (
+              <div key={article.source.id}>
                 <ArticleCard
-                  title={item?.title}
-                  description={item?.description}
-                  urlToImage={item?.urlToImage}
-                  source={item?.source}
+                  title={article?.title}
+                  description={article?.description}
+                  urlToImage={article?.urlToImage}
+                  source={article?.source}
                 />
               </div>
             ))}
