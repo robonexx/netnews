@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TinyCard.module.scss';
+import styles from './smallArticleCard.module.scss';
 
 interface SmallArticleCardProps {
   title: string;

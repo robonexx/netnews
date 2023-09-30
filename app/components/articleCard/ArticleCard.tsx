@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import Image from 'next/image';
-import styles from './Card.module.scss';
+import styles from './articleCard.module.scss';
 import IMG from '@/public/images/01.jpg';
 import { newsType } from '@/app/types/Types';
 

@@ -1,14 +1,16 @@
+@use '../../styles/base/' as *;
 .cardWrapper {
     position: relative;
-    margin: 1rem;
+    margin: 20px;
     padding: 4px;
-    width: 526px;
+    min-width: 28vw;
+    max-width: 50vw;
     height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: #23212262; */
-    border-radius: 1rem;
+    box-shadow: 0px 3px 16px -5px rgba(0, 0, 0, 0.48);
+    border-radius: 0.2rem;
     border: 2px solid #888;
     pointer-events: none;
 
@@ -16,8 +18,8 @@
         position: relative;
         width: 100%;
         height: 260px;
-        border-top-right-radius: 1rem;
-        border-top-left-radius: 1rem;
+        border-top-right-radius: 0.2rem;
+        border-top-left-radius: 0.2rem;
 
         > img {
             width: 100%;
@@ -39,6 +41,7 @@
         align-items: flex-start;
     
         &>h4 {
+            color: $color-client-3;
             font-size: 1.75rem;
             font-weight: 400;
         }

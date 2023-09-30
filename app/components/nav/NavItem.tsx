@@ -25,9 +25,9 @@ const NavItem: React.FC<NavItemProps> = ({
     <motion.li
       className={styles.nav_item}
       key={id}
-      initial={{ opacity: 0, y: i % 2 === 0 ? -1000 : 1000 }}
+      initial={{ opacity: 0, y: i % 2 === 0 ? -1000 : 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: i * 0.2 }}
+      transition={{ duration: 0.8, delay: i * 0.1 }}
       onClick={closeMobileMenu}
     >
       <div className={styles.img}>

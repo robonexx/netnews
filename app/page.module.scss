@@ -1,3 +1,5 @@
+@use './styles/base/' as *;
+
 $minColWidth: 15rem;
 $gridGap: 30px;
 
@@ -8,6 +10,13 @@ $gridGap: 30px;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+
+  > h1 {
+    color: $color-client-2;
+    font-size: $font-size-xxl;
+    font-family: $font-alt;
+    font-weight: $font-bold;
+  }
 }
 
 .grid_wrap {
