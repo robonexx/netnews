@@ -30,7 +30,11 @@ const Hero: React.FC = async () => {
               {data &&
                 data.articles.slice(1, 5).map((item: newsType) => (
                   <div key={item.source.id}>
-                    <SmallArticleCard title={item.title} source={item.source} />
+                    <SmallArticleCard
+                      title={item?.title}
+                      source={item?.source}
+                      urlToImage={item?.urlToImage}
+                    />
                   </div>
                 ))}
             </div>
@@ -44,10 +48,10 @@ const Hero: React.FC = async () => {
             data.articles.slice(-3).map((item: newsType) => (
               <div key={item.source.id}>
                 <ArticleCard
-                  title={item.title}
-                  description={item.description}
+                  title={item?.title}
+                  description={item?.description}
                   urlToImage={item?.urlToImage}
-                  source={item.source}
+                  source={item?.source}
                 />
               </div>
             ))}
