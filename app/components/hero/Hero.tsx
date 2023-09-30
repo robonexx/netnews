@@ -24,22 +24,14 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
         <div className={styles.grid}>
           {content ? (
             content.slice(0, 1).map((item) => (
-              <Link
-                key={item.source.id}
-                href={{
-                  pathname: '/article/',
-                  query: { id: item.source.id },
-                }}
-              >
-                <div>
-                  <ArticleCard
-                    title={item.title}
-                    description={item.description}
-                    urlToImage={item.urlToImage}
-                    source={item.source}
-                  />
-                </div>
-              </Link>
+              <div key={item.source.id}>
+                <ArticleCard
+                  title={item.title}
+                  description={item.description}
+                  urlToImage={item.urlToImage}
+                  source={item.source}
+                />
+              </div>
             ))
           ) : (
             <div></div>
@@ -49,17 +41,9 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
             <div className={styles.grid}>
               {content &&
                 content.slice(1, 5).map((item, idx) => (
-                  <Link
-                    key={item.source.id}
-                    href={{
-                      pathname: '/article/',
-                      query: { id: item.source.id },
-                    }}
-                  >
-                    <div>
-                      <SmallArticleCard title={item.title} />
-                    </div>
-                  </Link>
+                  <div key={item.source.id}>
+                    <SmallArticleCard title={item.title} source={item.source} />
+                  </div>
                 ))}
             </div>
           </div>
@@ -70,22 +54,14 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
         <div className={styles.grid}>
           {content &&
             content.slice(-3).map((item) => (
-              <Link
-                key={item.source.id}
-                href={{
-                  pathname: '/article/',
-                  query: { id: item.source.id },
-                }}
-              >
-                <div>
-                  <ArticleCard
-                    title={item.title}
-                    description={item.description}
-                    urlToImage={item.urlToImage}
-                    source={item.source}
-                  />
-                </div>
-              </Link>
+              <div key={item.source.id}>
+                <ArticleCard
+                  title={item.title}
+                  description={item.description}
+                  urlToImage={item.urlToImage}
+                  source={item.source}
+                />
+              </div>
             ))}
         </div>
       </section>

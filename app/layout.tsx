@@ -1,4 +1,5 @@
 import Header from './components/header/Header';
+import Nav from './components/nav/Nav';
 import './globals.scss';
 import type { Metadata } from 'next';
 

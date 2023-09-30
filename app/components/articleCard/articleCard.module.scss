@@ -1,55 +1,62 @@
 @use '../../styles/base/' as *;
 .cardWrapper {
+  position: relative;
+  margin: 20px;
+  padding: 4px;
+  min-width: 28vw;
+  max-width: 50vw;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 3px 16px -5px rgba(0, 0, 0, 0.48);
+  border-radius: 0.2rem;
+  border: 2px solid #888;
+  pointer-events: none;
+
+  .img {
     position: relative;
-    margin: 20px;
-    padding: 4px;
-    min-width: 28vw;
-    max-width: 50vw;
-    height: 400px;
+    width: 100%;
+    height: 260px;
+    border-top-right-radius: 0.2rem;
+    border-top-left-radius: 0.2rem;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  a {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .info {
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 3px 16px -5px rgba(0, 0, 0, 0.48);
-    border-radius: 0.2rem;
-    border: 2px solid #888;
-    pointer-events: none;
+    align-items: flex-start;
 
-    .img {
-        position: relative;
-        width: 100%;
-        height: 260px;
-        border-top-right-radius: 0.2rem;
-        border-top-left-radius: 0.2rem;
-
-        > img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+    & > h4 {
+      color: $color-client-3;
+      font-size: 1.75rem;
+      font-weight: 400;
     }
 
-    a {
-        font-size: 1rem;
-        font-weight: bold;
+    & > p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #888;
     }
-
-    .info {
-        padding: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    
-        &>h4 {
-            color: $color-client-3;
-            font-size: 1.75rem;
-            font-weight: 400;
-        }
-    
-        &>p {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #888;
-        }
-}
+  }
 }

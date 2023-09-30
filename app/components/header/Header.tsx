@@ -1,10 +1,8 @@
 'use client';
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Nav from '../nav/Nav';
-import { FiHome } from 'react-icons/fi';
 
 // styles
 import styles from './Header.module.scss';
@@ -48,7 +46,6 @@ export default function Header(props: any) {
       <Link href='/'>
           NEWS NET
       </Link>
-      <Nav />
       {props.children}
       <motion.hr
         className={styles.border_bottom}
@@ -56,6 +53,7 @@ export default function Header(props: any) {
         animate={{ width: '100%' }}
         transition={{ duration: 1.6, delay: 0.3, ease: 'easeInOut' }}
       />
+      <Nav />
     </header>
   );
 }
