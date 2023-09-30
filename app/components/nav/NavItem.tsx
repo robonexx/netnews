@@ -1,65 +1,43 @@
-import React, { useState, useEffect, useCallback, ReactNode } from 'react';
-import { useRouter } from 'next/router';
-import styles from './Navbar.module.scss';
+import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
+import { motion } from 'framer-motion';
+// styles
+import styles from './NavItem.module.scss';
 
 interface NavItemProps {
   title: string;
-  url: string;
-  icon: ReactNode;
-  children: ReactNode;
+  path: string;
+  id: number;
+  img: StaticImageData;
+  i: number;
+  closeMobileMenu: () => void;
 }
 
-export default function NavItem({
-  children,
+const NavItem: React.FC<NavItemProps> = ({
   title,
-  url,
-  icon,
-}: NavItemProps): JSX.Element {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
-
-  const onMouseEnter = () => {
-    if (window.innerWidth < 300) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 300) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
-  const { events } = useRouter();
-  const closeMobileMenu = useCallback(() => {
-    setClick(false);
-  }, []);
-
-  useEffect(() => {
-    // subscribe to next/router event
-    events.on('routeChangeStart', closeMobileMenu);
-    return () => {
-      // unsubscribe to event on unmount to prevent memory leak
-      events.off('routeChangeStart', closeMobileMenu);
-    };
-  }, [closeMobileMenu, events]);
-
+  path,
+  id,
+  img,
+  i,
+  closeMobileMenu,
+}) => {
   return (
-    <li
+    <motion.li
       className={styles.nav_item}
-      key={title}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      key={id}
+      initial={{ opacity: 0, y: i % 2 === 0 ? -1000 : 1000 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: i * 0.2 }}
+      onClick={closeMobileMenu}
     >
-      <a href={url} onClick={closeMobileMenu} className={styles.nav_links}>
-        <span className={styles.link_icon}>{icon}</span>
-        <span className={styles.link_title}>{title}</span>
-      </a>
-      {click && children}
-    </li>
+      <div className={styles.img}>
+        <Image alt={title} src={img} fill priority />
+      </div>
+      <Link href={path}>
+        <span className={styles.nav_link}>{title}</span>
+      </Link>
+    </motion.li>
   );
-}
+};
+
+export default NavItem;

@@ -35,4 +35,13 @@ export type NewsItem = {
   export type DummyNewsResponse = {
     pagination: Pagination;
     data: NewsItem[];
-  }
+}
+  
+export interface NavItemProps {
+  title: string;
+  path: string;
+  id: number;
+  img: StaticImageData;
+  i: number;
+  closeMobileMenu: () => void;
+}

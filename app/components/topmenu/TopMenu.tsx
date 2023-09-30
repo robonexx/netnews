@@ -1,7 +1,7 @@
 import { AiFillMail } from 'react-icons/ai';
 
 // styles
-import styles from '../../styles/components/TopMenu.module.scss';
+import styles from './topMenu.module.scss';
 
 export default function TopMenu() {
   return (
