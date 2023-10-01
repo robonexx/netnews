@@ -5,7 +5,6 @@ import Image from 'next/image';
 //styles
 import styles from './article.module.scss';
 import { AiOutlineCalendar } from 'react-icons/ai';
-import { dummyNews } from '../assets/DummyData';
 import { convertDate } from '../utils/convertDate';
 import { getTopNews } from '../lib/api';
 import { newsType } from '../types/Types';

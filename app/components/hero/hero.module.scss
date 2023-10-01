@@ -25,13 +25,5 @@ $gridGap: 3.33%;
     & + .grid {
         margin-top: $gridGap;
     }
-
-    @media (min-width: 1200px) {
-        grid-template-columns: repeat(3, 30%);
-      }
-  
-      @media (max-width: 991px) {
-        grid-template-columns: repeat(2, 40%);
-      }
 }
 }
