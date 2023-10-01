@@ -1,6 +1,5 @@
 import { newsType } from '@/app/types/Types';
 import ArticleCard from '../articleCard/ArticleCard';
-import { randomKey } from '@/app/utils/randomKey';
 
 //styles
 import styles from './news.module.scss';
@@ -18,7 +17,7 @@ const Entertainment = async () => {
             news.articles.filter(
               (article: newsType) => article.source.id !== null
             ).splice(0, 3).map((article: newsType) => (
-              <div key={article.source.id + randomKey(6)}>
+              <div key={article.url}>
                 <ArticleCard
                   title={article?.title}
                   description={article?.description}

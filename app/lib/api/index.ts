@@ -7,9 +7,9 @@ const BASE_URL = 'https://newsapi.org/v2/everything?'
 const TOP_NEWS_URL =
   'https://newsapi.org/v2/top-headlines?' + 'country=us&' + `apiKey=${APIKEY}`;
 
-const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=se&category=entertainment'
+const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?category=entertainment'
 
-const TECH = 'https://newsapi.org/v2/top-headlines?country=se&category=technology'
+const TECH = 'https://newsapi.org/v2/top-headlines?category=technology'
 /* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
 
 export const getTopNews = async () => {

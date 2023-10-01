@@ -5,7 +5,6 @@ import ArticleCard from '../articleCard/ArticleCard';
 //styles
 import styles from './news.module.scss';
 import { getTech } from '@/app/lib/api';
-import { randomKey } from '@/app/utils/randomKey';
 
 const Tech: FC = async () => {
   const news = await getTech();
@@ -16,7 +15,7 @@ const Tech: FC = async () => {
         <div className={styles.grid}>
           {news &&
             news.articles.splice(0, 3).map((article: newsType) => (
-              <div key={article?.source.id + randomKey(6)}>
+              <div key={article?.url}>
                 <ArticleCard
                   title={article?.title}
                   description={article?.description}

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import styles from './article.module.scss';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { convertDate } from '../utils/convertDate';
-import { getTopNews } from '../lib/api';
+import { getEntertainment, getTech, getTopNews } from '../lib/api';
 import { newsType } from '../types/Types';
 import { HighlightedText } from '../components/highlightedText/HighlightedText';
 
@@ -18,8 +18,14 @@ const Article: FC<{ params?: { id: string } }> = ({ params }) => {
     const fetchNews = async () => {
       try {
         const data = await getTopNews();
-        console.log('Fetched data:', data);
-        setNews(data.articles);
+        setNews(prevNews => [...prevNews, ...data.articles]);
+        const dataE = await getEntertainment();
+        console.log(dataE)
+        setNews(prevNews => [...prevNews, ...dataE.articles]);
+        
+        const dataT = await getTech();
+        console.log(dataT)
+        setNews(prevNews => [...prevNews, ...dataT.articles]);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching news:', error);
