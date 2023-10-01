@@ -33,7 +33,7 @@ const SmallArticleCard: React.FC<SmallArticleCardProps> = ({
         <HighlightedText title='Read Original Article' />
       </Link>
       <div className={styles.info}>
-        <h4>{title}</h4>
+        <h4 className={styles.title}>{title}</h4>
       </div>
       <div className={styles.border}></div>
       <Link href={`/${id}`}>Read Arcticle</Link>

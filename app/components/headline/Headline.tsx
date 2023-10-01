@@ -10,7 +10,7 @@ interface HeadlineProps {
 const Headline: FC<HeadlineProps> = ({title}) => {
   return (
     <div className={styles.headline}>
-      <span className={styles.headline__title}>{title}</span>
+      <div className={styles.headline__title}>{title}</div>
     </div>
   );
 };

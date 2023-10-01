@@ -1,19 +1,25 @@
 const APIKEY = process.env.NEXT_PUBLIC_API_KEY;
 
 /* const GUARDIANKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY */
+/* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
 
 const BASE_URL = 'https://newsapi.org/v2/everything?'
 
 const TOP_NEWS_URL =
   'https://newsapi.org/v2/top-headlines?' + 'country=us&' + `apiKey=${APIKEY}`;
 
-const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?category=entertainment'
+const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment'
 
-const TECH = 'https://newsapi.org/v2/top-headlines?category=technology'
-/* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
+const TECH = 'https://newsapi.org/v2/top-headlines?country=us&category=technology'
+
+const HEALTH = 'https://newsapi.org/v2/top-headlines?country=us&category=health'
+
+const ROBOT_URL = 'https://newsapi.org/v2/top-headlines?q=robot&' + `apiKey=${APIKEY}`;
+
+
 
 export const getTopNews = async () => {
-  const res = await fetch(TOP_NEWS_URL, { cache: 'no-store' });
+  const res = await fetch(TOP_NEWS_URL, { cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -50,7 +56,8 @@ export const getEntertainment = async () => {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
   }
-  return res.json()
+  const data = await res.json();
+  return data
 }
 
 export const getTech = async () => {
@@ -60,6 +67,28 @@ export const getTech = async () => {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
   }
-  return res.json()
+  const data = await res.json();
+  return data
 }
+
+export const getHealth = async () => {
+  const res = await fetch(`${HEALTH}&apiKey=${APIKEY}`, { cache: "force-cache" })
+  
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+  const data = await res.json();
+  return data
+}
+
+export const getRobotNews = async () => {
+  const res = await fetch(ROBOT_URL, { cache: "force-cache" });
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+  const data = await res.json();
+  return data;
+};
 

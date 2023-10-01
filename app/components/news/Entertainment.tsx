@@ -11,7 +11,6 @@ const Entertainment = async () => {
 
   return (
     <div className={styles.news}>
-      <div className={`${styles.grid_wrap} ${styles.grid_group}`}>
         <div className={styles.grid}>
           {news &&
             news.articles.filter(
@@ -28,7 +27,6 @@ const Entertainment = async () => {
               </div>
             ))}
         </div>
-      </div>
     </div>
   );
 };

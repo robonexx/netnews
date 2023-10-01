@@ -1,6 +1,6 @@
 @use '../../styles/base/' as *;
 .highlighted {
-    background: $color-client-3;
+    background: lighten($color-client-3, 5%);
     border-radius: 5px;
     padding: 4px 8px;
     color: $color-client-1;

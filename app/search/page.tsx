@@ -21,7 +21,6 @@ const Search = () => {
       try {
         setLoading(true);
         const response = await getNewsSearch(search, controller);
-
         const articles: newsType[] = response?.articles;
         const filteredArticles = articles.filter(
           (article) => article.source.id !== null

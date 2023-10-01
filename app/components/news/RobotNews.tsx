@@ -4,10 +4,10 @@ import ArticleCard from '../articleCard/ArticleCard';
 
 //styles
 import styles from './news.module.scss';
-import { getTech } from '@/app/lib/api';
+import { getRobotNews } from '@/app/lib/api';
 
-const Tech: FC = async () => {
-  const news = await getTech();
+const RobotNews: FC = async () => {
+  const news = await getRobotNews();
 
   return (
     <div className={styles.news}>
@@ -29,4 +29,4 @@ const Tech: FC = async () => {
   );
 };
 
-export default Tech;
+export default RobotNews;

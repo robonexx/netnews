@@ -6,7 +6,13 @@ import Image from 'next/image';
 import styles from './article.module.scss';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { convertDate } from '../utils/convertDate';
-import { getEntertainment, getTech, getTopNews } from '../lib/api';
+import {
+  getEntertainment,
+  getHealth,
+  getTech,
+  getTopNews,
+  getRobotNews,
+} from '../lib/api';
 import { newsType } from '../types/Types';
 import { HighlightedText } from '../components/highlightedText/HighlightedText';
 
@@ -18,14 +24,16 @@ const Article: FC<{ params?: { id: string } }> = ({ params }) => {
     const fetchNews = async () => {
       try {
         const data = await getTopNews();
-        setNews(prevNews => [...prevNews, ...data.articles]);
+        setNews((prevNews) => [...prevNews, ...data.articles]);
         const dataE = await getEntertainment();
-        console.log(dataE)
-        setNews(prevNews => [...prevNews, ...dataE.articles]);
-        
+        setNews((prevNews) => [...prevNews, ...dataE.articles]);
         const dataT = await getTech();
-        console.log(dataT)
-        setNews(prevNews => [...prevNews, ...dataT.articles]);
+        setNews((prevNews) => [...prevNews, ...dataT.articles]);
+        const dataH = await getHealth();
+        setNews((prevNews) => [...prevNews, ...dataH.articles]);
+        const dataA = await getRobotNews();
+        setNews((prevNews) => [...prevNews, ...dataA.articles]);
+
         setLoading(false);
       } catch (error) {
         console.error('Error fetching news:', error);

@@ -24,8 +24,8 @@ export const navData: NavItemProps[] = [
     closeMobileMenu: () => {}, // Placeholder function for 'closeMobileMenu'
   },
   {
-    title: 'e-sport',
-    path: '/esport',
+    title: 'sweden',
+    path: '/sweden',
     id: 2,
     img: Link2Img,
     i: 1,
@@ -48,8 +48,8 @@ export const navData: NavItemProps[] = [
     closeMobileMenu: () => {},
   },
   {
-    title: 'science',
-    path: '/science',
+    title: 'enternainment',
+    path: '/enternainment',
     id: 5,
     img: Link5Img,
     i: 4,

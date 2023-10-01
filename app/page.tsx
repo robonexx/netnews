@@ -6,6 +6,8 @@ import Entertainment from './components/news/Entertainment';
 import Headline from './components/headline/Headline';
 import Tech from './components/news/Tech';
 import Head from 'next/head';
+import Health from './components/news/Health';
+import RobotNews from './components/news/RobotNews';
 
 const Home: React.FC = async () => {
   return (
@@ -16,15 +18,22 @@ const Home: React.FC = async () => {
         {/*  <HeroImages /> */}
         <Hero />
       </div>
-      <Headline title='Entertainment' />
       <section className={styles.section}>
-        <Entertainment />
-      </section>
-      <Headline title='Technology' />
-      <section className={styles.section}>
+        <Headline title='Technology' />
         <Tech />
       </section>
-      <section className={styles.section}></section>
+      <section className={styles.section}>
+        <Headline title='Health' />
+        <Health />
+      </section>
+      <section className={styles.section}>
+        <Headline title='Robot News 🤖' />
+        <RobotNews />
+      </section>
+      <section className={styles.section}>
+        <Headline title='Entertainment' />
+        <Entertainment />
+      </section>
     </main>
   );
 };
