@@ -6,7 +6,7 @@ const APIKEY = process.env.NEXT_PUBLIC_API_KEY;
 const BASE_URL = 'https://newsapi.org/v2/everything?'
 
 const TOP_NEWS_URL =
-  'https://newsapi.org/v2/top-headlines?' + 'country=us&' + `apiKey=${APIKEY}`;
+  `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
 
 const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment'
 
@@ -16,10 +16,12 @@ const HEALTH = 'https://newsapi.org/v2/top-headlines?country=us&category=health'
 
 const ROBOT_URL = 'https://newsapi.org/v2/top-headlines?q=robot&' + `apiKey=${APIKEY}`;
 
+const GENERAL_NEWS = 'https://newsapi.org/v2/top-headlines?country=us&category=general&' + `apiKey=${APIKEY}`;
+
 
 
 export const getTopNews = async () => {
-  const res = await fetch(TOP_NEWS_URL, { cache: "force-cache" });
+  const res = await fetch(TOP_NEWS_URL, {  cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -31,7 +33,7 @@ export const getTopNews = async () => {
 export const getNewsSearch = async (search: string | null, controller?: AbortController) => {
   const signal = controller ? controller.signal : undefined;
   try {
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${APIKEY}&q=${search}&pageSize=15)`, { signal, cache: 'no-store' });
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${APIKEY}&q=${search}&pageSize=15)`, { signal, cache: 'force-cache' });
 
     if (!res.ok) {
       throw new Error('Failed to fetch data');
@@ -84,6 +86,16 @@ export const getHealth = async () => {
 
 export const getRobotNews = async () => {
   const res = await fetch(ROBOT_URL, { cache: "force-cache" });
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+  const data = await res.json();
+  return data;
+};
+
+export const getGenNews = async () => {
+  const res = await fetch(GENERAL_NEWS, { cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')

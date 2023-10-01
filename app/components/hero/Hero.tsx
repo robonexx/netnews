@@ -1,7 +1,7 @@
 import ArticleCard from '../articleCard/ArticleCard';
 import SmallArticleCard from '../smallArticleCard/SmallArticleCard';
 import { newsType } from '@/app/types/Types';
-import { getEntertainment, getTopNews } from '@/app/lib/api';
+import { getEntertainment, getTopNews, getGenNews } from '@/app/lib/api';
 // styles
 import styles from './hero.module.scss';
 

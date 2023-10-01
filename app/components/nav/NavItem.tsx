@@ -31,7 +31,13 @@ const NavItem: React.FC<NavItemProps> = ({
       onClick={closeMobileMenu}
     >
       <div className={styles.img}>
-        <Image alt={title} src={img} fill priority />
+        <Image
+          alt={title}
+          src={img}
+          fill
+          priority
+          sizes='(max-width: 768px) 20vw, (min-width: 769px) 20vw'
+        />
       </div>
       <Link href={path}>
         <span className={styles.nav_link}>{title}</span>
