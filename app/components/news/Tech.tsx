@@ -21,6 +21,7 @@ const Tech: FC = async () => {
                   description={article?.description}
                   urlToImage={article?.urlToImage}
                   source={article?.source}
+                  url={article.url}
                 />
               </div>
             ))}

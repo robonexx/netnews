@@ -11,6 +11,7 @@ const Home: React.FC = async () => {
   return (
     <main className={styles.main}>
       <h1>NEWS NET</h1>
+      <p>Gathering the latest new in one place</p>
       <div className={styles.section}>
         {/*  <HeroImages /> */}
         <Hero />

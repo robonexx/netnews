@@ -1,8 +1,8 @@
-import React from 'react';
 import Link from 'next/link';
 import styles from './smallArticleCard.module.scss';
 import Image from 'next/image';
 import IMG from '@/public/images/01.jpg';
+import { HighlightedText } from '../highlightedText/HighlightedText';
 
 interface SmallArticleCardProps {
   title: string;
@@ -11,16 +11,27 @@ interface SmallArticleCardProps {
     name: string;
   };
   urlToImage?: string;
+  url: string;
 }
 
 const SmallArticleCard: React.FC<SmallArticleCardProps> = ({
   title,
   source,
-  urlToImage
+  urlToImage,
+  url,
 }) => {
   const id = source.id;
+
   return (
     <div className={styles.wrapper}>
+      <Link
+        className={styles.external_link}
+        href={url}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <HighlightedText title='Read Original Article' />
+      </Link>
       <div className={styles.info}>
         <h4>{title}</h4>
       </div>

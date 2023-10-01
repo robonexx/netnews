@@ -31,6 +31,17 @@
     }
   }
 
+  .external_link {
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
   a {
     position: absolute;
     z-index: 10;

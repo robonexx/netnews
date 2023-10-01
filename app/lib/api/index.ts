@@ -25,7 +25,7 @@ export const getTopNews = async () => {
 export const getNewsSearch = async (search: string | null, controller?: AbortController) => {
   const signal = controller ? controller.signal : undefined;
   try {
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${APIKEY}&q=${search}&pageSize=5)`, { signal, cache: 'no-store' });
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${APIKEY}&q=${search}&pageSize=15)`, { signal, cache: 'no-store' });
 
     if (!res.ok) {
       throw new Error('Failed to fetch data');

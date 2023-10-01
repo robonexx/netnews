@@ -6,7 +6,7 @@ export interface newsType {
   author?: string;
   title: string;
   description: string;
-  url?: string;
+  url: string;
   urlToImage: string;
   publishedAt?: string | undefined;
   content?: string;
