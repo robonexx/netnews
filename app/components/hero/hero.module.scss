@@ -11,9 +11,13 @@ $gridGap: 3.33%;
 
 .grid_group {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
+
+    @media (min-width: 980px) {
+        flex-flow: row wrap;
+      }
 }
 
 .grid {

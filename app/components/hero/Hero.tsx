@@ -10,7 +10,7 @@ const Hero: React.FC = async () => {
 
   return (
     <div className={styles.hero}>
-      <section className={styles.grid_wrap}>
+      {/* <section className={styles.grid_wrap}> */}
         <div className={styles.grid}>
           {news &&
             news.articles
@@ -28,7 +28,7 @@ const Hero: React.FC = async () => {
                 </div>
               ))}
           {/* small cards on the side */}
-          <div className={`${styles.grid_wrap} ${styles.grid_group}`}>
+          <div className={`${styles.grid_wrap}`}>
             <div className={styles.grid}>
               {news &&
                 news.articles
@@ -47,7 +47,7 @@ const Hero: React.FC = async () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
 
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
