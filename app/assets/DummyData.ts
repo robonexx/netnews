@@ -32,7 +32,7 @@ export const dummyNews: NewsArray = [
       'For those who feared the behind-the-back intrigue, melodrama and just plain oddness of past seasons would be missing w… [+5718 chars]',
   },
   {
-    source: { id: null, name: 'CNBC' },
+    source: { id: 'CNBC', name: 'CNBC' },
     author: 'Michael Wayland, John Rosevear',
     title:
       'Automakers grow frustrated over pace of UAW negotiations as new deadline looms - CNBC',
