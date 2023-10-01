@@ -6,15 +6,17 @@ import { getTopNews } from '@/app/lib/api';
 import styles from './hero.module.scss';
 
 const Hero: React.FC = async () => {
-  const data = await getTopNews();
+  const news = await getTopNews();
 
   return (
     <div className={styles.hero}>
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
-          {data &&
-            data.articles.slice(0, 1).map((article: newsType) => (
-              <div key={article.source.id}>
+          {news &&
+            news.articles.filter(
+              (article: newsType) => article.source.id !== null
+            ).slice(0, 1).map((article: newsType) => (
+              <div key={article.url}>
                 <ArticleCard
                   title={article?.title}
                   description={article?.description}
@@ -26,9 +28,11 @@ const Hero: React.FC = async () => {
           {/* small cards on the side */}
           <div className={`${styles.grid_wrap} ${styles.grid_group}`}>
             <div className={styles.grid}>
-              {data &&
-                data.articles.slice(1, 5).map((article: newsType) => (
-                  <div key={article.source.id}>
+              {news &&
+                news.articles.filter(
+                  (article: newsType) => article.source.id !== null
+                ).slice(1, 5).map((article: newsType) => (
+                  <div key={article.url}>
                     <SmallArticleCard
                       title={article?.title}
                       source={article?.source}
@@ -43,9 +47,11 @@ const Hero: React.FC = async () => {
 
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
-          {data &&
-            data.articles.slice(-3).map((article: newsType) => (
-              <div key={article.source.id}>
+          {news &&
+            news.articles.filter(
+              (article: newsType) => article.source.id !== null
+            ).slice(-3).map((article: newsType) => (
+              <div key={article.url}>
                 <ArticleCard
                   title={article?.title}
                   description={article?.description}

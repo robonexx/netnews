@@ -15,18 +15,16 @@ const Tech: FC = async () => {
       <div className={`${styles.grid_wrap} ${styles.grid_group}`}>
         <div className={styles.grid}>
           {news &&
-            news.articles
-              .filter((article: newsType) => article.source.id !== null)
-              .map((article: newsType) => (
-                <div key={article?.source.id + randomKey(6)}>
-                  <ArticleCard
-                    title={article?.title}
-                    description={article?.description}
-                    urlToImage={article?.urlToImage}
-                    source={article?.source}
-                  />
-                </div>
-              ))}
+            news.articles.splice(0, 3).map((article: newsType) => (
+              <div key={article?.source.id + randomKey(6)}>
+                <ArticleCard
+                  title={article?.title}
+                  description={article?.description}
+                  urlToImage={article?.urlToImage}
+                  source={article?.source}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>

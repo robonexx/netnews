@@ -9,23 +9,24 @@ import { getEntertainment } from '@/app/lib/api';
 const Entertainment = async () => {
   const news = await getEntertainment();
 
+
   return (
     <div className={styles.news}>
       <div className={`${styles.grid_wrap} ${styles.grid_group}`}>
         <div className={styles.grid}>
           {news &&
-            news.articles
-              .filter((article: newsType) => article.source.id !== null)
-              .map((article: newsType) => (
-                <div key={article.source.id + randomKey(6)}>
-                  <ArticleCard
-                    title={article?.title}
-                    description={article?.description}
-                    urlToImage={article?.urlToImage}
-                    source={article?.source}
-                  />
-                </div>
-              ))}
+            news.articles.filter(
+              (article: newsType) => article.source.id !== null
+            ).splice(0, 3).map((article: newsType) => (
+              <div key={article.source.id + randomKey(6)}>
+                <ArticleCard
+                  title={article?.title}
+                  description={article?.description}
+                  urlToImage={article?.urlToImage}
+                  source={article?.source}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>

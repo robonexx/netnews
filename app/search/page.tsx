@@ -7,6 +7,7 @@ import ArticleCard from '../components/articleCard/ArticleCard';
 import Headline from '../components/headline/Headline';
 // styles
 import styles from './search.module.scss';
+import { getNewsSearch } from '../lib/api';
 
 const Search = () => {
   const [newsData, setNewsData] = useState<any>([]);
@@ -16,19 +17,14 @@ const Search = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    const signal = controller.signal;
     const getSearchedNews = async () => {
       try {
         setLoading(true);
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?apiKey=${process.env.NEXT_PUBLIC_API_KEY}&q=${search}&pageSize=10)`,
-          { signal }
-        );
-        const responseToJson = await response.json();
-        const articles: newsType[] = responseToJson?.articles;
-        // take away if there is a null id in source, it gives errors
+        const response = await getNewsSearch(search, controller);
+
+        const articles: newsType[] = response?.articles;
         const filteredArticles = articles.filter(
-          (article) => article?.source.id !== null
+          (article) => article.source.id !== null
         );
         setLoading(false);
         setNewsData(filteredArticles);
@@ -40,6 +36,7 @@ const Search = () => {
         }
       }
     };
+
     getSearchedNews();
 
     return () => {

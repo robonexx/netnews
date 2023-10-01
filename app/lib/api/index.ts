@@ -7,9 +7,9 @@ const BASE_URL = 'https://newsapi.org/v2/everything?'
 const TOP_NEWS_URL =
   'https://newsapi.org/v2/top-headlines?' + 'country=us&' + `apiKey=${APIKEY}`;
 
-const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment'
+const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=se&category=entertainment'
 
-const TECH = 'https://newsapi.org/v2/top-headlines?country=us&category=technology'
+const TECH = 'https://newsapi.org/v2/top-headlines?country=se&category=technology'
 /* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
 
 export const getTopNews = async () => {
@@ -22,15 +22,25 @@ export const getTopNews = async () => {
   return data;
 };
 
-export const getNewsSearch = async (searchquery: string) => {
-  let search = +`?q=${searchquery}&pageSize=1`;
-  const res = await fetch(BASE_URL + search + `&sortBy=popularity&apiKey=${APIKEY}`, { cache: 'no-store' });
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+export const getNewsSearch = async (search: string | null, controller?: AbortController) => {
+  const signal = controller ? controller.signal : undefined;
+  try {
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${APIKEY}&q=${search}&pageSize=5)`, { signal, cache: 'no-store' });
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    if (controller && controller.signal.aborted) {
+      // Request was aborted, you can handle this as needed
+      console.log('Request aborted:', error.message);
+    } else {
+      throw error; // Rethrow other errors
+    }
   }
-  const data = await res.json();
-  return data;
 };
 
 export const getEntertainment = async () => {
