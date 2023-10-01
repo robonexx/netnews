@@ -1,12 +1,12 @@
 import ArticleCard from '../articleCard/ArticleCard';
 import SmallArticleCard from '../smallArticleCard/SmallArticleCard';
 import { newsType } from '@/app/types/Types';
-import { getTopNews } from '@/app/lib/api';
+import { getEntertainment, getTopNews } from '@/app/lib/api';
 // styles
 import styles from './hero.module.scss';
 
 const Hero: React.FC = async () => {
-  const news = await getTopNews();
+  const news = await getEntertainment();
 
   return (
     <div className={styles.hero}>
@@ -23,7 +23,7 @@ const Hero: React.FC = async () => {
                     description={article?.description}
                     urlToImage={article?.urlToImage}
                     source={article?.source}
-                    url={article.url}
+                    url={article?.url}
                   />
                 </div>
               ))}
@@ -40,7 +40,7 @@ const Hero: React.FC = async () => {
                         title={article?.title}
                         source={article?.source}
                         urlToImage={article?.urlToImage}
-                        url={article.url}
+                        url={article?.url}
                       />
                     </div>
                   ))}
@@ -62,7 +62,7 @@ const Hero: React.FC = async () => {
                     description={article?.description}
                     urlToImage={article?.urlToImage}
                     source={article?.source}
-                    url={article.url}
+                    url={article?.url}
                   />
                 </div>
               ))}
