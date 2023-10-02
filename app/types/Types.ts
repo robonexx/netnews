@@ -7,6 +7,7 @@ export interface guardianNewsType {
     trailText: string;
     thumbnail: string;
   }
+  bodyText?: string;
   webPublicationDate?: string | undefined;
   params?: string;
 }

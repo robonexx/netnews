@@ -1,7 +1,7 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { newsType } from '@/app/types/Types';
+import { guardianNewsType } from '@/app/types/Types';
 import { randomKey } from '@/app/utils/randomKey';
 import ArticleCard from '../components/articleCard/ArticleCard';
 import Headline from '../components/headline/Headline';
@@ -21,9 +21,9 @@ const Search = () => {
       try {
         setLoading(true);
         const response = await getNewsSearch(search, controller);
-        const articles: newsType[] = response?.articles;
+        const articles: guardianNewsType[] = response?.response.results;
         const filteredArticles = articles.filter(
-          (article) => article.source.id !== null
+          (article) => article.id !== null
         );
         setLoading(false);
         setNewsData(filteredArticles);
@@ -50,8 +50,8 @@ const Search = () => {
         <p>loading...</p>
       ) : (
         <>
-          {newsData.map((article: newsType) => (
-            <div key={article?.source.id + randomKey(5)}>
+          {newsData.map((article: guardianNewsType) => (
+            <div key={article?.id + randomKey(5)}>
               <ArticleCard {...article} />
             </div>
           ))}

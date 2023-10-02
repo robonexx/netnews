@@ -5,49 +5,42 @@ const APIKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY;
 
 // to get body text the content - show-fields=bodyText
 
-const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search'
+const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search';
 
 const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?star-rating=5&page-size=10&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`;
 
-const TEST = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`
+const TEST = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`;
 
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
-const TECH_URL =`http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=technology%20AND%20future&api-key=${APIKEY}`
-const AI_URL =`https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=ai%20AND%20code&api-key=${APIKEY}`
-const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=bodyText,headline,thumbnail&q=health%20AND%20longevity&api-key=${APIKEY}`
+const TECH_URL = `http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=technology%20AND%20future&api-key=${APIKEY}`;
+const AI_URL = `https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=ai%20AND%20code&api-key=${APIKEY}`;
+const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=bodyText,headline,thumbnail&q=health%20AND%20longevity&api-key=${APIKEY}`;
+const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=movies%20AND%20hollywood&api-key=${APIKEY}`;
 
 // for space in query %20
 //  query = search_query.replace(' ', '%20')
 
-
-
-
-
 export const getTopGuardianNews = async () => {
-  const res = await fetch(`${HEALTH_URL}`, {  cache: "no-store" });
+  const res = await fetch(`${TOP_GUARDIAN_NEWS}`, { cache: 'no-store' });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch data');
   }
   const data = await res.json();
   return data;
 };
 
-export const getTopNews = async () => {
-  const res = await fetch(`${TOP_NEWS_URL}&apiKey=${APIKEY}&pageSize=15`, {  cache: "force-cache" });
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  const data = await res.json();
-  return data;
-};
-
-export const getNewsSearch = async (search: string | null, controller?: AbortController) => {
+export const getNewsSearch = async (
+  search: string | null,
+  controller?: AbortController
+) => {
   const signal = controller ? controller.signal : undefined;
   try {
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${APIKEY}&q=${search}&pageSize=15)`, { signal, cache: 'force-cache' });
+    const res = await fetch(
+      `https://content.guardianapis.com/search?q=${search}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`,
+      { signal, cache: 'force-cache' }
+    );
 
     if (!res.ok) {
       throw new Error('Failed to fetch data');
@@ -66,46 +59,44 @@ export const getNewsSearch = async (search: string | null, controller?: AbortCon
 };
 
 export const getEntertainment = async () => {
-  const res = await fetch(`${ENTERTAINMENT}&apiKey=${APIKEY}`, { cache: "force-cache" })
-  
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  const data = await res.json();
-  return data
-}
+  const res = await fetch(`${ENTERTAINMENT_URL}`, { cache: 'force-cache' });
 
-export const getTech = async () => {
-  const res = await fetch(`${TECH}&apiKey=${APIKEY}`, { cache: "force-cache" })
-  
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  const data = await res.json();
-  return data
-}
-
-export const getHealth = async () => {
-  const res = await fetch(`${HEALTH}&apiKey=${APIKEY}`, { cache: "force-cache" })
-  
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  const data = await res.json();
-  return data
-}
-
-export const getAINews = async () => {
-  const res = await fetch(`${AI_URL}&apiKey=${APIKEY}`, { cache: "force-cache" });
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch data');
   }
   const data = await res.json();
   return data;
 };
 
+export const getTech = async () => {
+  const res = await fetch(`${TECH_URL}`, { cache: 'force-cache' });
 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+  const data = await res.json();
+  return data;
+};
+
+export const getHealth = async () => {
+  const res = await fetch(`${HEALTH_URL}`, { cache: 'force-cache' });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+  const data = await res.json();
+  return data;
+};
+
+export const getAINews = async () => {
+  const res = await fetch(`${AI_URL}`, { cache: 'force-cache' });
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+  const data = await res.json();
+  return data;
+};

@@ -10,29 +10,29 @@ import {
   getEntertainment,
   getHealth,
   getTech,
-  getTopNews,
-  getRobotNews,
+  getTopGuardianNews,
+  getAINews,
 } from '../lib/api';
-import { newsType } from '../types/Types';
+import { guardianNewsType } from '../types/Types';
 import { HighlightedText } from '../components/highlightedText/HighlightedText';
 
 const Article: FC<{ params?: { id: string } }> = ({ params }) => {
-  const [news, setNews] = useState<newsType[]>([]);
+  const [news, setNews] = useState<guardianNewsType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const data = await getTopNews();
-        setNews((prevNews) => [...prevNews, ...data.articles]);
+        const data = await getTopGuardianNews();
+        setNews((prevNews) => [...prevNews, ...data.response.results]);
         const dataE = await getEntertainment();
-        setNews((prevNews) => [...prevNews, ...dataE.articles]);
+        setNews((prevNews) => [...prevNews, ...dataE.response.results]);
         const dataT = await getTech();
-        setNews((prevNews) => [...prevNews, ...dataT.articles]);
+        setNews((prevNews) => [...prevNews, ...dataT.response.results]);
         const dataH = await getHealth();
-        setNews((prevNews) => [...prevNews, ...dataH.articles]);
-        const dataA = await getRobotNews();
-        setNews((prevNews) => [...prevNews, ...dataA.articles]);
+        setNews((prevNews) => [...prevNews, ...dataH.response.results]);
+        const dataA = await getAINews();
+        setNews((prevNews) => [...prevNews, ...dataA.response.results]);
 
         setLoading(false);
       } catch (error) {
@@ -60,7 +60,7 @@ const Article: FC<{ params?: { id: string } }> = ({ params }) => {
   console.log('Type of news:', typeof news);
   const filteredNews =
     news && news.length !== 0
-      ? news.find((item) => item.source.id === id)
+      ? news.find((item) => item.id === id)
       : null;
 
   console.log('filtered news', filteredNews);
@@ -69,7 +69,7 @@ const Article: FC<{ params?: { id: string } }> = ({ params }) => {
     return <div>No matching news found</div>;
   }
 
-  const publishedDate = filteredNews.publishedAt || '';
+  const publishedDate = filteredNews.webPublicationDate || '';
   const formattedDate = convertDate(publishedDate);
 
   return (
@@ -82,19 +82,19 @@ const Article: FC<{ params?: { id: string } }> = ({ params }) => {
         <div className={styles.wrapper}>
           {filteredNews && (
             <article
-              key={filteredNews.source.id}
+              key={filteredNews.id}
               className={styles.content_wrapper}
             >
               <p className={styles.date}>
                 <AiOutlineCalendar /> <HighlightedText title={formattedDate} />
               </p>
-              <h2 className={styles.title}>{filteredNews.title}</h2>
-              <h4 className={styles.desc}>{filteredNews.description}</h4>
+              <h2 className={styles.title}>{filteredNews.webTitle}</h2>
+              <h4 className={styles.desc}>{filteredNews.sectionName}</h4>
               <div className={styles.media_wrapper}>
-                {filteredNews.urlToImage ? (
+                {filteredNews.fields.thumbnail ? (
                   <div className={styles.img}>
                     <Image
-                      src={filteredNews.urlToImage}
+                      src={filteredNews.fields.thumbnail}
                       alt='Article media'
                       fill
                       priority
@@ -107,10 +107,10 @@ const Article: FC<{ params?: { id: string } }> = ({ params }) => {
                 )}
               </div>
               <p className={styles.author}>
-                <HighlightedText title={`By: ${filteredNews.author}`} />
+                <HighlightedText title={`By: ${formattedDate}`} />
               </p>
               <hr className={styles.divider} />
-              <p className={styles.content}>{filteredNews.content}</p>
+              <p className={styles.content}>{filteredNews.bodyText}</p>
             </article>
           )}
         </div>

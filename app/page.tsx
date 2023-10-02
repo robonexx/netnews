@@ -5,7 +5,7 @@ import Entertainment from './components/news/Entertainment';
 import Headline from './components/headline/Headline';
 import Tech from './components/news/Tech';
 import Health from './components/news/Health';
-import RobotNews from './components/news/RobotNews';
+import AiNews from './components/news/AiNews';
 
 const Home: React.FC = async () => {
   return (
@@ -24,8 +24,8 @@ const Home: React.FC = async () => {
         <Health />
       </section>
       <section className={styles.section}>
-        <Headline title='Robot News 🤖' />
-        <RobotNews />
+        <Headline title='Ai News 🤖' />
+        <AiNews />
       </section>
       <section className={styles.section}>
         <Headline title='Entertainment' />
