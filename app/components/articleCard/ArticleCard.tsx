@@ -10,10 +10,8 @@ const ArticleCard = ({
   webTitle,
   fields,
   webUrl,
-  sectionName
-
+  sectionName,
 }: guardianNewsType) => {
-
   return (
     <div className={styles.cardWrapper}>
       <Link
@@ -35,9 +33,9 @@ const ArticleCard = ({
         />
       </div>
       <div className={styles.info}>
-        <p>written by</p>
-        <h4>{webTitle}</h4>
         <p>{sectionName}</p>
+        <h4>{webTitle}</h4>
+        <p>{fields.trailText}</p>
       </div>
       <Link href={`/${id}`}>Read Arcticle</Link>
     </div>
