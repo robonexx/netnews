@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
+    domains: ['media.guim.co.uk'],
   },
 };
 

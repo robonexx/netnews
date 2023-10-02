@@ -3,10 +3,10 @@ const APIKEY = process.env.NEXT_PUBLIC_API_KEY;
 /* const GUARDIANKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY */
 /* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
 
-const BASE_URL = 'https://newsapi.org/v2/everything?'
+const BASE_URL = 'https://newsapi.org/v2/everything?apiKey=${APIKEY}'
 
 const TOP_NEWS_URL =
-  `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
+  `https://newsapi.org/v2/top-headlines?country=us&apiKey=${APIKEY}`;
 
 const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment'
 
@@ -21,7 +21,7 @@ const GENERAL_NEWS = 'https://newsapi.org/v2/top-headlines?country=us&category=g
 
 
 export const getTopNews = async () => {
-  const res = await fetch(TOP_NEWS_URL, {  cache: "force-cache" });
+  const res = await fetch(BASE_URL, {  cache: "no-store" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')

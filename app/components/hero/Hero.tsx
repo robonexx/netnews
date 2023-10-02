@@ -1,12 +1,19 @@
 import ArticleCard from '../articleCard/ArticleCard';
 import SmallArticleCard from '../smallArticleCard/SmallArticleCard';
 import { newsType } from '@/app/types/Types';
-import { getEntertainment, getTopNews, getGenNews } from '@/app/lib/api';
+import {
+  getEntertainment,
+  getTopNews,
+  getGenNews,
+  getTech,
+} from '@/app/lib/api';
 // styles
 import styles from './hero.module.scss';
 
 const Hero: React.FC = async () => {
-  const news = await getEntertainment();
+  const news = await getGenNews();
+
+  console.log(news.articles);
 
   return (
     <div className={styles.hero}>
