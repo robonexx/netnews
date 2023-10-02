@@ -11,23 +11,12 @@ const TEST = `https://content.guardianapis.com/sport/2022/oct/07/cricket-jos-but
 
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
-const BASE_URL = `https://newsapi.org/v2/everything?apiKey=${APIKEY}`
+
 
 // for space in query %20
 //  query = search_query.replace(' ', '%20')
 
-const TOP_NEWS_URL =
-  `https://newsapi.org/v2/top-headlines?country=us`;
 
-const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment'
-
-const TECH = 'https://newsapi.org/v2/top-headlines?country=us&category=technology'
-
-const HEALTH = 'https://newsapi.org/v2/top-headlines?country=us&category=health'
-
-const ROBOT_URL = 'https://newsapi.org/v2/top-headlines?q=robot';
-
-const GENERAL_NEWS = 'https://newsapi.org/v2/top-headlines?country=us&category=general';
 
 
 
