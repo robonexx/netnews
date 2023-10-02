@@ -13,9 +13,9 @@ const TEST = `http://content.guardianapis.com/search?order-by=newest&show-fields
 
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
-const TECH_URL =`http://content.guardianapis.com/search?page-size=10&order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`
-const AI_URL =`https://content.guardianapis.com/technology`
-const HEALTH_URL =`https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=body,headline,thumbnail&api-key=`
+const TECH_URL =`http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=technology%20AND%20future&api-key=${APIKEY}`
+const AI_URL =`https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=ai%20AND%20code&api-key=${APIKEY}`
+const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=bodyText,headline,thumbnail&q=health%20AND%20longevity&api-key=${APIKEY}`
 
 // for space in query %20
 //  query = search_query.replace(' ', '%20')
@@ -25,7 +25,7 @@ const HEALTH_URL =`https://content.guardianapis.com/search?page-size=10&section=
 
 
 export const getTopGuardianNews = async () => {
-  const res = await fetch(`${TECH_URL}`, {  cache: "no-store" });
+  const res = await fetch(`${HEALTH_URL}`, {  cache: "no-store" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -108,13 +108,4 @@ export const getAINews = async () => {
   return data;
 };
 
-export const getGenNews = async () => {
-  const res = await fetch(`${GENERAL_NEWS}&apiKey=${APIKEY}`, { cache: "force-cache" });
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  const data = await res.json();
-  return data;
-};
 

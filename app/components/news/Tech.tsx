@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { newsType } from '@/app/types/Types';
+import { guardianNewsType } from '@/app/types/Types';
 import ArticleCard from '../articleCard/ArticleCard';
 
 //styles
@@ -13,15 +13,15 @@ const Tech: FC = async () => {
     <div className={styles.news}>
         <div className={styles.grid}>
           {news &&
-            news.articles.splice(0, 3).map((article: newsType) => (
-              <div key={article?.url}>
-                <ArticleCard
-                  title={article?.title}
-                  description={article?.description}
-                  urlToImage={article?.urlToImage}
-                  source={article?.source}
-                  url={article.url}
-                />
+           news.response.results.splice(0, 3).map((article: guardianNewsType) => (
+            <div key={article.id}>
+              <ArticleCard
+                 id={article.id}
+                 webTitle={article?.webTitle}
+                 fields={article?.fields}
+                 webUrl={article?.webUrl}
+                 sectionName={article.sectionName}
+              />
               </div>
             ))}
         </div>

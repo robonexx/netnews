@@ -1,19 +1,19 @@
+import { FC } from 'react';
 import { guardianNewsType } from '@/app/types/Types';
 import ArticleCard from '../articleCard/ArticleCard';
 
 //styles
 import styles from './news.module.scss';
-import { getEntertainment } from '@/app/lib/api';
+import { getAINews } from '@/app/lib/api';
 
-const Entertainment = async () => {
-  const news = await getEntertainment();
-
+const AiNews: FC = async () => {
+  const news = await getAINews();
 
   return (
     <div className={styles.news}>
         <div className={styles.grid}>
           {news &&
-            news.response.results.splice(0, 3).map((article: guardianNewsType) => (
+             news.response.results.splice(0, 3).map((article: guardianNewsType) => (
               <div key={article.id}>
                 <ArticleCard
                    id={article.id}
@@ -25,8 +25,8 @@ const Entertainment = async () => {
               </div>
             ))}
         </div>
-    </div>
+      </div>
   );
 };
 
-export default Entertainment;
+export default AiNews;
