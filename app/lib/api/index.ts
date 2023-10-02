@@ -3,15 +3,19 @@ const APIKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY;
 /* const GUARDIANKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY */
 /* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
 
+// to get body text the content - show-fields=bodyText
+
 const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search'
 
-const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?star-rating=5&page-size=6&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`;
+const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?star-rating=5&page-size=10&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`;
 
-const TEST = `https://content.guardianapis.com/sport/2022/oct/07/cricket-jos-buttler-primed-for-england-comeback-while-phil-salt-stays-focused?api-key=${APIKEY}`
+const TEST = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`
 
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
-
+const TECH_URL =`http://content.guardianapis.com/search?page-size=10&order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`
+const AI_URL =`https://content.guardianapis.com/technology`
+const HEALTH_URL =`https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=body,headline,thumbnail&api-key=`
 
 // for space in query %20
 //  query = search_query.replace(' ', '%20')
@@ -21,7 +25,7 @@ const TEST = `https://content.guardianapis.com/sport/2022/oct/07/cricket-jos-but
 
 
 export const getTopGuardianNews = async () => {
-  const res = await fetch(`${TOP_GUARDIAN_NEWS}`, {  cache: "no-store" });
+  const res = await fetch(`${TECH_URL}`, {  cache: "no-store" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -94,8 +98,8 @@ export const getHealth = async () => {
   return data
 }
 
-export const getRobotNews = async () => {
-  const res = await fetch(`${ROBOT_URL}&apiKey=${APIKEY}`, { cache: "force-cache" });
+export const getAINews = async () => {
+  const res = await fetch(`${AI_URL}&apiKey=${APIKEY}`, { cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
