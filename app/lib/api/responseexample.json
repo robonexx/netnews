@@ -1,0 +1,51 @@
+[{
+  "response": {
+    "status": "ok",
+    "userTier": "developer",
+    "total": 1,
+    "content": {
+      "id": "artanddesign/2023/sep/27/rubens-and-women-review-dulwich-picture-gallery-breasts",
+      "type": "article",
+      "sectionId": "artanddesign",
+      "sectionName": "Art and design",
+      "webPublicationDate": "2023-09-27T11:10:05Z",
+      "webTitle": "Rubens & Women review – ‘Naked breasts moved him religiously’",
+      "webUrl": "https://www.theguardian.com/artanddesign/2023/sep/27/rubens-and-women-review-dulwich-picture-gallery-breasts",
+      "apiUrl": "https://content.guardianapis.com/artanddesign/2023/sep/27/rubens-and-women-review-dulwich-picture-gallery-breasts",
+      "isHosted": false,
+      "pillarId": "pillar/arts",
+      "pillarName": "Arts"
+    }
+  }
+},
+
+{
+    "id": "film/2023/sep/28/the-exorcist-review-friedkins-head-swivelling-horror-is-still-diabolically-inspired",
+    "type": "article",
+    "sectionId": "film",
+    "sectionName": "Film",
+    "webPublicationDate": "2023-09-28T06:00:20Z",
+    "webTitle": "The Exorcist review – Friedkin’s head-swivelling horror is still diabolically inspired",
+    "webUrl": "https://www.theguardian.com/film/2023/sep/28/the-exorcist-review-friedkins-head-swivelling-horror-is-still-diabolically-inspired",
+    "apiUrl": "https://content.guardianapis.com/film/2023/sep/28/the-exorcist-review-friedkins-head-swivelling-horror-is-still-diabolically-inspired",
+    "fields": {
+      "trailText": "The 50th-anniversary extended director’s cut of the 1973 tale of teenage possession still shocks",
+      "thumbnail": "https://media.guim.co.uk/3d72593e4880476b44b9f1aaefa688ef594accb3/0_446_4971_2984/500.jpg"
+    },
+    "tags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "isHosted": false,
+    "pillarId": "pillar/arts",
+    "pillarName": "Arts"
+  }
+  
+]

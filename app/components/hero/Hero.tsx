@@ -1,36 +1,30 @@
 import ArticleCard from '../articleCard/ArticleCard';
 import SmallArticleCard from '../smallArticleCard/SmallArticleCard';
-import { newsType } from '@/app/types/Types';
-import {
-  getEntertainment,
-  getTopNews,
-  getGenNews,
-  getTech,
-} from '@/app/lib/api';
+import { guardianNewsType } from '@/app/types/Types';
+import { getTopGuardianNews } from '@/app/lib/api';
 // styles
 import styles from './hero.module.scss';
 
 const Hero: React.FC = async () => {
-  const news = await getGenNews();
-
-  console.log(news.articles);
+  const news = await getTopGuardianNews();
+  console.log(news.response.results);
 
   return (
     <div className={styles.hero}>
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
           {news &&
-            news.articles
-              .filter((article: newsType) => article.source.id !== null)
+            news.response.results
+              .filter((article: guardianNewsType) => article.id !== null)
               .slice(0, 1)
-              .map((article: newsType) => (
-                <div key={article.url}>
+              .map((article: guardianNewsType) => (
+                <div key={article.id}>
                   <ArticleCard
-                    title={article?.title}
-                    description={article?.description}
-                    urlToImage={article?.urlToImage}
-                    source={article?.source}
-                    url={article?.url}
+                    id={article.id}
+                    webTitle={article?.webTitle}
+                    fields={article?.fields}
+                    webUrl={article?.webUrl}
+                    sectionName={article.sectionName}
                   />
                 </div>
               ))}
@@ -38,16 +32,16 @@ const Hero: React.FC = async () => {
           <div className={`${styles.grid_wrap}`}>
             <div className={styles.grid}>
               {news &&
-                news.articles
-                  .filter((article: newsType) => article.source.id !== null)
+                news.response.results
+                  .filter((article: guardianNewsType) => article.id !== null)
                   .slice(1, 5)
-                  .map((article: newsType) => (
-                    <div key={article.url}>
+                  .map((article: guardianNewsType) => (
+                    <div key={article.id}>
                       <SmallArticleCard
-                        title={article?.title}
-                        source={article?.source}
-                        urlToImage={article?.urlToImage}
-                        url={article?.url}
+                        id={article.id}
+                        webTitle={article?.webTitle}
+                        fields={article?.fields}
+                        webUrl={article?.webUrl}
                       />
                     </div>
                   ))}
@@ -59,17 +53,17 @@ const Hero: React.FC = async () => {
       <section className={styles.grid_wrap}>
         <div className={styles.grid}>
           {news &&
-            news.articles
-              .filter((article: newsType) => article.source.id !== null)
+            news.response.results
+              .filter((article: guardianNewsType) => article.id !== null)
               .slice(-3)
-              .map((article: newsType) => (
-                <div key={article.url}>
+              .map((article: guardianNewsType) => (
+                <div key={article.id}>
                   <ArticleCard
-                    title={article?.title}
-                    description={article?.description}
-                    urlToImage={article?.urlToImage}
-                    source={article?.source}
-                    url={article?.url}
+                    id={article.id}
+                    webTitle={article?.webTitle}
+                    fields={article?.fields}
+                    webUrl={article?.webUrl}
+                    sectionName={article.sectionName}
                   />
                 </div>
               ))}

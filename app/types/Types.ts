@@ -1,3 +1,16 @@
+export interface guardianNewsType {
+  id: string;
+  sectionName?: string;
+  webTitle: string;
+  webUrl: string;
+  fields: {
+    trailText: string;
+    thumbnail: string;
+  }
+  webPublicationDate?: string | undefined;
+  params?: string;
+}
+
 export interface newsType {
   source: {
     id: string;

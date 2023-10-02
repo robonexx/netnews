@@ -1,12 +1,23 @@
-const APIKEY = process.env.NEXT_PUBLIC_API_KEY;
+const APIKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY;
 
 /* const GUARDIANKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY */
 /* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
 
-const BASE_URL = 'https://newsapi.org/v2/everything?apiKey=${APIKEY}'
+const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search'
+
+const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?star-rating=5&page-size=6&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`;
+
+const TEST = `https://content.guardianapis.com/sport/2022/oct/07/cricket-jos-buttler-primed-for-england-comeback-while-phil-salt-stays-focused?api-key=${APIKEY}`
+
+// const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
+
+const BASE_URL = `https://newsapi.org/v2/everything?apiKey=${APIKEY}`
+
+// for space in query %20
+//  query = search_query.replace(' ', '%20')
 
 const TOP_NEWS_URL =
-  `https://newsapi.org/v2/top-headlines?country=us&apiKey=${APIKEY}`;
+  `https://newsapi.org/v2/top-headlines?country=us`;
 
 const ENTERTAINMENT = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment'
 
@@ -14,14 +25,24 @@ const TECH = 'https://newsapi.org/v2/top-headlines?country=us&category=technolog
 
 const HEALTH = 'https://newsapi.org/v2/top-headlines?country=us&category=health'
 
-const ROBOT_URL = 'https://newsapi.org/v2/top-headlines?q=robot&' + `apiKey=${APIKEY}`;
+const ROBOT_URL = 'https://newsapi.org/v2/top-headlines?q=robot';
 
-const GENERAL_NEWS = 'https://newsapi.org/v2/top-headlines?country=us&category=general&' + `apiKey=${APIKEY}`;
+const GENERAL_NEWS = 'https://newsapi.org/v2/top-headlines?country=us&category=general';
 
 
+
+export const getTopGuardianNews = async () => {
+  const res = await fetch(`${TOP_GUARDIAN_NEWS}`, {  cache: "no-store" });
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+  const data = await res.json();
+  return data;
+};
 
 export const getTopNews = async () => {
-  const res = await fetch(BASE_URL, {  cache: "no-store" });
+  const res = await fetch(`${TOP_NEWS_URL}&apiKey=${APIKEY}&pageSize=15`, {  cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -85,7 +106,7 @@ export const getHealth = async () => {
 }
 
 export const getRobotNews = async () => {
-  const res = await fetch(ROBOT_URL, { cache: "force-cache" });
+  const res = await fetch(`${ROBOT_URL}&apiKey=${APIKEY}`, { cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -95,7 +116,7 @@ export const getRobotNews = async () => {
 };
 
 export const getGenNews = async () => {
-  const res = await fetch(GENERAL_NEWS, { cache: "force-cache" });
+  const res = await fetch(`${GENERAL_NEWS}&apiKey=${APIKEY}`, { cache: "force-cache" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')

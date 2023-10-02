@@ -2,22 +2,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './articleCard.module.scss';
 import IMG from '@/public/images/01.jpg';
-import { newsType } from '@/app/types/Types';
+import { guardianNewsType } from '@/app/types/Types';
 import { HighlightedText } from '../highlightedText/HighlightedText';
 
 const ArticleCard = ({
-  title,
-  description,
-  urlToImage,
-  source,
-  url,
-}: newsType) => {
-  const id = source.id;
+  id,
+  webTitle,
+  fields,
+  webUrl,
+  sectionName
+
+}: guardianNewsType) => {
+
   return (
     <div className={styles.cardWrapper}>
       <Link
         className={styles.external_link}
-        href={url}
+        href={webUrl}
         target='_blank'
         rel='noopener noreferrer'
       >
@@ -26,7 +27,7 @@ const ArticleCard = ({
       <div className={styles.img}>
         <Image
           alt='news image'
-          src={urlToImage ? urlToImage : IMG}
+          src={fields.thumbnail ? fields.thumbnail : IMG}
           fill
           priority
           className={styles.img}
@@ -35,8 +36,8 @@ const ArticleCard = ({
       </div>
       <div className={styles.info}>
         <p>written by</p>
-        <h4>{title}</h4>
-        <p>{description}</p>
+        <h4>{webTitle}</h4>
+        <p>{sectionName}</p>
       </div>
       <Link href={`/${id}`}>Read Arcticle</Link>
     </div>
