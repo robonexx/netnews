@@ -1,13 +1,13 @@
 import ArticleCard from '../articleCard/ArticleCard';
 import SmallArticleCard from '../smallArticleCard/SmallArticleCard';
 import { guardianNewsType } from '@/app/types/Types';
-import { getAINews, getEntertainment, getHealth, getTech, getTopGuardianNews } from '@/app/lib/api';
+import { getTopGuardianNews } from '@/app/lib/api';
 // styles
 import styles from './hero.module.scss';
 
 const Hero: React.FC = async () => {
-  const news = await getEntertainment();
-  console.log(news.response.results);
+  const news = await getTopGuardianNews();
+  /* console.log(news.response.results); */
 
   return (
     <div className={styles.hero}>
