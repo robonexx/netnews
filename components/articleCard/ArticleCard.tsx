@@ -5,7 +5,7 @@ import IMG from '@/public/images/01.jpg';
 import { guardianNewsType } from '@/lib/types/Types';
 import { HighlightedText } from '../highlightedText/HighlightedText';
 
-const ArticleCard = async ({
+const ArticleCard = ({
   id,
   webTitle,
   fields,

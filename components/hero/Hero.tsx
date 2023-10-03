@@ -18,7 +18,6 @@ const Hero: React.FC = async () => {
         <div className={styles.grid}>
           {news &&
             news.response.results
-              .filter((article: guardianNewsType) => article.id !== null)
               .slice(0, 1)
               .map((article: guardianNewsType) => (
                 <ArticleCard
@@ -35,7 +34,6 @@ const Hero: React.FC = async () => {
             <div className={styles.grid}>
               {news &&
                 news.response.results
-                  .filter((article: guardianNewsType) => article.id !== null)
                   .slice(1, 5)
                   .map((article: guardianNewsType) => (
                     <SmallArticleCard
@@ -56,7 +54,6 @@ const Hero: React.FC = async () => {
         <div className={styles.grid}>
           {news &&
             news.response.results
-              .filter((article: guardianNewsType) => article.id !== null)
               .slice(-3)
               .map((article: guardianNewsType) => (
                 <ArticleCard

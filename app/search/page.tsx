@@ -22,11 +22,8 @@ const Search = () => {
         setLoading(true);
         const response = await getNewsSearch(search, controller);
         const articles: guardianNewsType[] = response?.response.results;
-        const filteredArticles = articles.filter(
-          (article) => article.id !== null
-        );
         setLoading(false);
-        setNewsData(filteredArticles);
+        setNewsData(articles);
       } catch (error) {
         if (typeof error === 'object' && error !== null) {
           console.log(error.toString());
@@ -51,7 +48,7 @@ const Search = () => {
       ) : (
         <>
           {newsData.map((article: guardianNewsType) => (
-            <div key={article?.id + randomKey(5)}>
+            <div key={article.id}>
               <ArticleCard {...article} />
             </div>
           ))}

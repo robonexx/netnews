@@ -1,4 +1,4 @@
-const APIKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY;
+const APIKEY = process.env.NEXT_PUBLIC_APIKEY;
 
 /* const GUARDIANKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY */
 /* const THE_GUARDIAN = 'https://content.guardianapis.com/search?api-key=' */
@@ -12,7 +12,7 @@ const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?order-by=newe
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
 const TECH_URL = `http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=technology%20AND%20future&api-key=${APIKEY}`;
-const AI_URL = `https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=ai%20AND%20code&api-key=${APIKEY}`;
+const AI_URL = `https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=ai%20AND%20artificial%20intelligence&api-key=${APIKEY}`;
 const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=headline,thumbnail,trailText&q=health%20AND%20longevity&api-key=${APIKEY}`;
 const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newest&show-fields=headline,thumbnail,trailText&q=movies%20AND%20hollywood&api-key=${APIKEY}`;
 
@@ -70,7 +70,7 @@ export const getNewsSearch = async (
 };
 
 export const getEntertainment = async () => {
-  const res = await fetch(`${ENTERTAINMENT_URL}`, { cache: 'force-cache' });
+  const res = await fetch(`${ENTERTAINMENT_URL}`, { cache: 'no-store' });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -81,7 +81,7 @@ export const getEntertainment = async () => {
 };
 
 export const getTech = async () => {
-  const res = await fetch(`${TECH_URL}`, { cache: 'force-cache' });
+  const res = await fetch(`${TECH_URL}`, { cache: 'no-store' });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -92,7 +92,7 @@ export const getTech = async () => {
 };
 
 export const getHealth = async () => {
-  const res = await fetch(`${HEALTH_URL}`, { cache: 'force-cache' });
+  const res = await fetch(`${HEALTH_URL}`, { cache: 'no-store' });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -103,7 +103,7 @@ export const getHealth = async () => {
 };
 
 export const getAINews = async () => {
-  const res = await fetch(`${AI_URL}`, { cache: 'force-cache' });
+  const res = await fetch(`${AI_URL}`, { cache: 'no-store' });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
