@@ -16,7 +16,7 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
   const id = formattedUrl(params.id);
   const data = await getSingleArticle(id);
 
-  /*   console.log(data); */
+  const article = await data.response.content;
 
   /*  useEffect(() => {
     const fetchNews = async () => {
@@ -57,17 +57,17 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
   } */
 
   /* console.log('Type of news:', typeof news);
-  const filteredNews =
+  const article =
     news && news.length !== 0 ? news.find((item) => item.id === id) : null;
 
-  console.log('filtered news', filteredNews);
+  console.log('filtered news', article);
   // Check if the news with the specified id is found
-  if (!filteredNews) {
+  if (!article) {
     return <div>No matching news found</div>;
   }
 */
-  /* const publishedDate = filteredNews.webPublicationDate || '';
-  const formattedDate = convertDate(publishedDate);  */
+  const publishedDate = article.webPublicationDate || '';
+  const formattedDate = convertDate(publishedDate);
 
   return (
     <div className={styles.container}>
@@ -77,22 +77,18 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
 
       <main>
         <div className={styles.wrapper}>
-          <p style={{ color: 'black' }}>{formattedUrl(params.id)}</p>
-          <br />
-          {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <div></div>}
-
-          {/* {filteredNews && (
-            <article key={filteredNews.id} className={styles.content_wrapper}>
+          {article && (
+            <article key={article.id} className={styles.content_wrapper}>
               <p className={styles.date}>
                 <AiOutlineCalendar /> <HighlightedText title={formattedDate} />
               </p>
-              <h2 className={styles.title}>{filteredNews.webTitle}</h2>
-              <h4 className={styles.desc}>{filteredNews.sectionName}</h4>
+              <h2 className={styles.title}>{article.webTitle}</h2>
+              <h4 className={styles.desc}>{article.sectionName}</h4>
               <div className={styles.media_wrapper}>
-                {filteredNews.fields.thumbnail ? (
+                {article.fields.thumbnail ? (
                   <div className={styles.img}>
                     <Image
-                      src={filteredNews.fields.thumbnail}
+                      src={article.fields.thumbnail}
                       alt='Article media'
                       fill
                       priority
@@ -105,12 +101,18 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
                 )}
               </div>
               <p className={styles.author}>
-                <HighlightedText title={`By: ${formattedDate}`} />
+                <HighlightedText
+                  title={`By: ${article.fields.firstName} ${article.fields.lastName}`}
+                />
               </p>
               <hr className={styles.divider} />
-              <p className={styles.content}>{bodyText}</p>
+              <div
+                className={styles.content}
+                dangerouslySetInnerHTML={{ __html: article.fields.body }}
+              />
+              {/* <p className={styles.content}>{article.fields.bodyText}</p> */}
             </article>
-          )}*/}
+          )}
         </div>
       </main>
     </div>

@@ -25,7 +25,7 @@ const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newes
 
 
 export const getSingleArticle = async (id: string) => {
-  const res = await fetch(`https://content.guardianapis.com/${id}?&api-key=${APIKEY}`, { cache: 'no-store' });
+  const res = await fetch(`https://content.guardianapis.com/${id}?show-fields=bodyText,body,headline,thumbnail&show-tags=contributor,publication&api-key=${APIKEY}`, { cache: 'no-store' });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');

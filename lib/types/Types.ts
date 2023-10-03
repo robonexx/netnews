@@ -6,10 +6,16 @@ export interface guardianNewsType {
   fields: {
     trailText: string;
     thumbnail: string;
+    body?: string;
+    bodyText?: string;
+    headling?: string;
   }
-  bodyText?: string;
-  webPublicationDate?: string | undefined;
+  webPublicationDate?: string;
   params?: string;
+  tags?: {
+    firstName: string;
+    lastName: string;
+  }[];
 }
 
 export interface newsType {

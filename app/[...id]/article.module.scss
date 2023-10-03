@@ -52,7 +52,7 @@
       height: 40vh;
 
       @media (min-width: 768px) {
-        width: 800px;
+        width: 500px;
       }
 
       > img {
@@ -77,6 +77,14 @@
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.1px;
+
+    p {
+      margin: 1rem 0;
+    }
+
+    figcaption {
+      font-style: italic;
+    }
   }
 
   .author {
@@ -104,6 +112,11 @@
       background-size: 100% 100%;
       background: linear-gradient(120deg, #121212, #282828);
     }
+  }
+
+  .gu-image {
+    width: 300px !important;
+    height: 260px !important;
   }
 }
 
