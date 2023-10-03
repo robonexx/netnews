@@ -1,8 +1,11 @@
-check section to see different search results culture politics etc
+# NET NEWS
 
-or search for results ?
+## TECH
+NEXTJS
+TYPESCRIPT
+SASS
+ 
+ API - GUARDIAN API
+ HOSTED ON VERCEL
 
-check how to get bodytext for content of article
-
-re-make all fetches
 
