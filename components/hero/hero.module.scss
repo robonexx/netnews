@@ -14,7 +14,7 @@ $gridGapMobile: 1.5% 0;
 .grid_group {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 
     @media (min-width: 768px) {

@@ -6,15 +6,18 @@ import { useRouter } from 'next/navigation';
 
 const SearchInput: React.FC = () => {
   const [query, setQuery] = useState<string>('');
+  const [active, setActive] = useState(false);
   const router = useRouter();
 
   const ref = useRef<HTMLInputElement>(null);
 
-  const handleButtonClick = () => {
-    if (ref.current) {
+  const handleButtonClick = (e: FormEvent) => {
+    e.preventDefault()
+    /*  if (ref.current) {
       ref.current.style.visibility = 'visible';
       ref.current.style.width = '100%';
-    }
+    } */
+    setActive((prev) => !prev);
   };
 
   const searchQuery = (e: FormEvent) => {
@@ -31,18 +34,27 @@ const SearchInput: React.FC = () => {
   return (
     <form className={styles.form} onSubmit={searchQuery}>
       <input
-        ref={ref}
+        /*  ref={ref} */
         type='text'
         placeholder='ex. culture, tech, latest'
-        className=''
+        className={active ? styles.isActive : ''}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button type='submit'>
-        <RiSearchLine
-          className={styles.searchIcon}
-          onClick={handleButtonClick}
-        />
-      </button>
+      {active ? (
+        <button type='submit'>
+          <RiSearchLine
+            className={styles.searchIcon}
+            onClick={handleButtonClick}
+          />
+        </button>
+      ) : (
+        <button>
+          <RiSearchLine
+            className={styles.searchIcon}
+            onClick={handleButtonClick}
+          />
+        </button>
+      )}
     </form>
   );
 };

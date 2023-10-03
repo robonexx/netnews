@@ -9,14 +9,12 @@ const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search';
 
 const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?order-by=newest&page-size=8&show-fields=headline,thumbnail,trailText&section=news&api-key=${APIKEY}`;
 
-const TEST = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`;
-
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
-const TECH_URL = `http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=technology%20AND%20future&api-key=${APIKEY}`;
-const AI_URL = `https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=bodyText&q=ai%20AND%20code&api-key=${APIKEY}`;
-const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=bodyText,headline,thumbnail&q=health%20AND%20longevity&api-key=${APIKEY}`;
-const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=movies%20AND%20hollywood&api-key=${APIKEY}`;
+const TECH_URL = `http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=technology%20AND%20future&api-key=${APIKEY}`;
+const AI_URL = `https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=ai%20AND%20code&api-key=${APIKEY}`;
+const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=headline,thumbnail,trailText&q=health%20AND%20longevity&api-key=${APIKEY}`;
+const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newest&show-fields=headline,thumbnail,trailText&q=movies%20AND%20hollywood&api-key=${APIKEY}`;
 
 // for space in query %20
 //  query = search_query.replace(' ', '%20')
@@ -25,7 +23,7 @@ const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newes
 
 
 export const getSingleArticle = async (id: string) => {
-  const res = await fetch(`https://content.guardianapis.com/${id}?show-fields=bodyText,body,headline,thumbnail&show-tags=contributor,publication&api-key=${APIKEY}`, { cache: 'no-store' });
+  const res = await fetch(`https://content.guardianapis.com/${id}?show-fields=bodyText,body,headline,thumbnail,trailText&show-tags=contributor,publication&api-key=${APIKEY}`, { cache: 'no-store' });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');

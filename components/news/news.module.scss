@@ -12,7 +12,7 @@ $gridGapMobile: 1.5% 0;
   .grid {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     grid-gap: $gridGapMobile;
 
     & + .grid {
@@ -21,6 +21,7 @@ $gridGapMobile: 1.5% 0;
 
     @media (min-width: 768px) {
       grid-gap: $gridGap;
+      grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
     }
   }
 }

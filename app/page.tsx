@@ -15,7 +15,7 @@ const Home: React.FC = async () => {
       <div className={styles.section}>
         <Hero />
       </div>
-      {/*  <section className={styles.section}>
+      <section className={styles.section}>
         <Headline title='Technology' />
         <Tech />
       </section>
@@ -30,7 +30,7 @@ const Home: React.FC = async () => {
       <section className={styles.section}>
         <Headline title='Entertainment' />
         <Entertainment />
-      </section> */}
+      </section>
     </main>
   );
 };

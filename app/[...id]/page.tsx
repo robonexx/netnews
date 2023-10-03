@@ -95,8 +95,7 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
                     />
                   </div>
                 ) : (
-                  <div className={styles.overlay}>
-                    <div className={styles.logo}></div>
+                  <div>
                   </div>
                 )}
               </div>

@@ -25,9 +25,9 @@ const Hero: React.FC = async () => {
                   key={article.id}
                   id={article.id}
                   webTitle={article?.webTitle}
-                  fields={article?.fields}
-                  webUrl={article?.webUrl}
+                  fields={article.fields}
                   sectionName={article.sectionName}
+                  tags={article.tags}
                 />
               ))}
           {/* small cards on the side */}
@@ -42,7 +42,7 @@ const Hero: React.FC = async () => {
                       key={article.id}
                       id={article.id}
                       webTitle={article?.webTitle}
-                      fields={article?.fields}
+                      fields={article.fields}
                       webUrl={article?.webUrl}
                       webPublicationDate={article.webPublicationDate}
                     />
@@ -63,9 +63,10 @@ const Hero: React.FC = async () => {
                   key={article.id}
                   id={article.id}
                   webTitle={article?.webTitle}
-                  fields={article?.fields}
+                  fields={article.fields}
                   webUrl={article?.webUrl}
                   sectionName={article.sectionName}
+                  tags={article.tags}
                 />
               ))}
         </div>

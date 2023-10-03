@@ -2,7 +2,7 @@ export interface guardianNewsType {
   id: string;
   sectionName?: string;
   webTitle: string;
-  webUrl: string;
+  webUrl?: string;
   fields: {
     trailText: string;
     thumbnail: string;
