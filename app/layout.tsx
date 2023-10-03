@@ -1,7 +1,7 @@
 import Header from '../components/header/Header';
 import './globals.scss';
 import type { Metadata } from 'next';
-import { Open_Sans, Orbitron } from 'next/font/google';
+import { Open_Sans} from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'News Net',
@@ -13,10 +13,6 @@ const openSans = Open_Sans({
   display: 'swap',
 });
 
-const orbitron = Orbitron({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export default function RootLayout({
   children,
@@ -25,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${openSans.className} ${orbitron.className}`}>
+      <body className={openSans.className}>
         <Header />
         {children}
       </body>
