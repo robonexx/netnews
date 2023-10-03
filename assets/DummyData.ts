@@ -1,4 +1,4 @@
-import { newsType } from '../types/Types';
+import { newsType } from '../lib/types/Types';
 
 type NewsArray = newsType[];
 

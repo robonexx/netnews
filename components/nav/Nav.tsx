@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 /* import usePathname  from 'next/router'; */
 import MenuBtn from '../menuBtn/MenuBtn';
 import NavItem from './NavItem';
-import { navData } from '@/app/assets/navData';
+import { navData } from '@/assets/navData';
 
 // styles
 import styles from './Nav.module.scss';

@@ -38,4 +38,8 @@ $gridGapMobile: 1.5% 0;
         grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
     }
 }
+
+a {
+    cursor: pointer;
+}
 }

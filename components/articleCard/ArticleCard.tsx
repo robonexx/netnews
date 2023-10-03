@@ -1,31 +1,27 @@
 import Link from 'next/link';
-import styles from './smallArticleCard.module.scss';
 import Image from 'next/image';
+import styles from './articleCard.module.scss';
 import IMG from '@/public/images/01.jpg';
+import { guardianNewsType } from '@/lib/types/Types';
 import { HighlightedText } from '../highlightedText/HighlightedText';
-import { guardianNewsType } from '@/app/types/Types';
 
-const SmallArticleCard: React.FC<guardianNewsType> = ({
+const ArticleCard = ({
   id,
   webTitle,
   fields,
   webUrl,
-}) => {
+  sectionName,
+}: guardianNewsType) => {
   return (
-    <div className={styles.wrapper}>
-      <Link
+    <div className={styles.cardWrapper}>
+      {/* <Link
         className={styles.external_link}
         href={webUrl}
         target='_blank'
         rel='noopener noreferrer'
       >
         <HighlightedText title='Read Original Article' />
-      </Link>
-      <div className={styles.info}>
-        <h4 className={styles.title}>{webTitle}</h4>
-      </div>
-      <div className={styles.border}></div>
-      <Link href={`/${id}`}>Read Arcticle</Link>
+      </Link> */}
       <div className={styles.img}>
         <Image
           alt='news image'
@@ -36,8 +32,14 @@ const SmallArticleCard: React.FC<guardianNewsType> = ({
           unoptimized={true}
         />
       </div>
+      <div className={styles.info}>
+        <p>{sectionName}</p>
+        <h4>{webTitle}</h4>
+        <p>{fields.trailText}</p>
+      </div>
+     {/*  <Link href={`/${id}`}>Read Arcticle</Link> */}
     </div>
   );
 };
 
-export default SmallArticleCard;
+export default ArticleCard;

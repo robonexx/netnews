@@ -1,13 +1,13 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { guardianNewsType } from '@/app/types/Types';
-import { randomKey } from '@/app/utils/randomKey';
-import ArticleCard from '../components/articleCard/ArticleCard';
-import Headline from '../components/headline/Headline';
+import { guardianNewsType } from '@/lib/types/Types';
+import { randomKey } from '@/lib/utils/randomKey';
+import ArticleCard from '../../components/articleCard/ArticleCard';
+import Headline from '../../components/headline/Headline';
 // styles
 import styles from './search.module.scss';
-import { getNewsSearch } from '../lib/api';
+import { getNewsSearch } from '@/lib/api-routes';
 
 const Search = () => {
   const [newsData, setNewsData] = useState<any>([]);

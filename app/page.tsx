@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './page.module.scss';
-import Hero from './components/hero/Hero';
-import Entertainment from './components/news/Entertainment';
-import Headline from './components/headline/Headline';
-import Tech from './components/news/Tech';
-import Health from './components/news/Health';
-import AiNews from './components/news/AiNews';
+import Hero from '../components/hero/Hero';
+import Entertainment from '../components/news/Entertainment';
+import Headline from '../components/headline/Headline';
+import Tech from '../components/news/Tech';
+import Health from '../components/news/Health';
+import AiNews from '../components/news/AiNews';
 
 const Home: React.FC = async () => {
   return (

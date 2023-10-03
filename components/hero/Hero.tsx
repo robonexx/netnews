@@ -1,7 +1,8 @@
+import Link from 'next/link';
 import ArticleCard from '../articleCard/ArticleCard';
 import SmallArticleCard from '../smallArticleCard/SmallArticleCard';
-import { guardianNewsType } from '@/app/types/Types';
-import { getTopGuardianNews } from '@/app/lib/api';
+import { guardianNewsType } from '@/lib/types/Types';
+import { getTopGuardianNews } from '@/lib/api-routes';
 // styles
 import styles from './hero.module.scss';
 
@@ -18,7 +19,10 @@ const Hero: React.FC = async () => {
               .filter((article: guardianNewsType) => article.id !== null)
               .slice(0, 1)
               .map((article: guardianNewsType) => (
-                <div key={article.id}>
+                <Link
+                  key={article.id}
+                  href={`/${article.id}`}
+                >
                   <ArticleCard
                     id={article.id}
                     webTitle={article?.webTitle}
@@ -26,7 +30,7 @@ const Hero: React.FC = async () => {
                     webUrl={article?.webUrl}
                     sectionName={article.sectionName}
                   />
-                </div>
+                </Link>
               ))}
           {/* small cards on the side */}
           <div className={`${styles.grid_wrap}`}>
@@ -36,14 +40,17 @@ const Hero: React.FC = async () => {
                   .filter((article: guardianNewsType) => article.id !== null)
                   .slice(1, 5)
                   .map((article: guardianNewsType) => (
-                    <div key={article.id}>
+                    <Link
+                      key={article.id}
+                      href={`/${article.id}`}
+                    >
                       <SmallArticleCard
                         id={article.id}
                         webTitle={article?.webTitle}
                         fields={article?.fields}
                         webUrl={article?.webUrl}
                       />
-                    </div>
+                    </Link>
                   ))}
             </div>
           </div>
@@ -57,7 +64,10 @@ const Hero: React.FC = async () => {
               .filter((article: guardianNewsType) => article.id !== null)
               .slice(-3)
               .map((article: guardianNewsType) => (
-                <div key={article.id}>
+                <Link
+                  key={article.id}
+                  href={`/${article.id}`}
+                >
                   <ArticleCard
                     id={article.id}
                     webTitle={article?.webTitle}
@@ -65,7 +75,7 @@ const Hero: React.FC = async () => {
                     webUrl={article?.webUrl}
                     sectionName={article.sectionName}
                   />
-                </div>
+                </Link>
               ))}
         </div>
       </section>
