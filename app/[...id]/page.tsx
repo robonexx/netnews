@@ -79,9 +79,9 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
         <div className={styles.wrapper}>
           {article && (
             <article key={article.id} className={styles.content_wrapper}>
-              <p className={styles.date}>
+              <div className={styles.date}>
                 <AiOutlineCalendar /> <HighlightedText title={formattedDate} />
-              </p>
+              </div>
               <h2 className={styles.title}>{article.webTitle}</h2>
               <h4 className={styles.desc}>{article.sectionName}</h4>
               <div className={styles.media_wrapper}>
@@ -100,17 +100,17 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
                   </div>
                 )}
               </div>
-              <p className={styles.author}>
+              <div className={styles.author}>
                 <HighlightedText
                   title={`By: ${article.fields.firstName} ${article.fields.lastName}`}
                 />
-              </p>
+              </div>
               <hr className={styles.divider} />
-              <div
+              {/* <div
                 className={styles.content}
                 dangerouslySetInnerHTML={{ __html: article.fields.body }}
-              />
-              {/* <p className={styles.content}>{article.fields.bodyText}</p> */}
+              /> */}
+              <p className={styles.content}>{article.fields.bodyText}</p>
             </article>
           )}
         </div>
