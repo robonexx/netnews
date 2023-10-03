@@ -5,6 +5,8 @@ import ArticleCard from '../articleCard/ArticleCard';
 import styles from './news.module.scss';
 import { getEntertainment } from '@/lib/api-routes';
 
+const revalidate = 8640;
+
 const Entertainment = async () => {
   const news = await getEntertainment();
 

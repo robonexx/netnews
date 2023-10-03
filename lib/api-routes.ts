@@ -7,7 +7,7 @@ const APIKEY = process.env.NEXT_PUBLIC_GUARDIAN_KEY;
 
 const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search';
 
-const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?star-rating=5&page-size=10&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`;
+const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?order-by=newest&page-size=8&show-fields=headline,thumbnail,trailText&section=news&api-key=${APIKEY}`;
 
 const TEST = `http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=technology&api-key=${APIKEY}`;
 

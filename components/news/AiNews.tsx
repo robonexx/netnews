@@ -6,6 +6,8 @@ import ArticleCard from '../articleCard/ArticleCard';
 import styles from './news.module.scss';
 import { getAINews } from '@/lib/api-routes';
 
+const revalidate = 8640;
+
 const AiNews: FC = async () => {
   const news = await getAINews();
 

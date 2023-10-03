@@ -14,14 +14,7 @@ const ArticleCard = ({
 }: guardianNewsType) => {
   return (
     <div className={styles.cardWrapper}>
-      {/* <Link
-        className={styles.external_link}
-        href={webUrl}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <HighlightedText title='Read Original Article' />
-      </Link> */}
+      <Link key={id} href={`/${id}`}></Link>
       <div className={styles.img}>
         <Image
           alt='news image'
@@ -37,7 +30,6 @@ const ArticleCard = ({
         <h4>{webTitle}</h4>
         <p>{fields.trailText}</p>
       </div>
-     {/*  <Link href={`/${id}`}>Read Arcticle</Link> */}
     </div>
   );
 };

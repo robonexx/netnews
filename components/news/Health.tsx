@@ -6,6 +6,8 @@ import ArticleCard from '../articleCard/ArticleCard';
 import styles from './news.module.scss';
 import { getHealth } from '@/lib/api-routes';
 
+const revalidate = 8640;
+
 const Health: FC = async () => {
   const news = await getHealth();
 
