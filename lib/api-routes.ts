@@ -7,16 +7,16 @@ const APIKEY = process.env.NEXT_PUBLIC_APIKEY;
 
 const BASE_URL_GUARDIAN = 'https://content.guardianapis.com/search';
 
-const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?q=news&page-size=8&show-fields=headline,thumbnail,trailText&section=news&api-key=${APIKEY}`;
+const TOP_GUARDIAN_NEWS = `https://content.guardianapis.com/search?q=news&order-by=newest&page-size=8&show-tags=contributor&show-fields=headline,thumbnail,trailText&api-key=${APIKEY}`;
 
 
 // I put this inside the getSearch method
 // const GUARDIAN_SEARCH = `https://content.guardianapis.com/search?q=${query}&page-size=18&show-fields=trailText,thumbnail&show-tags=keyword&api-key=${APIKEY}`
 
-const TECH_URL = `http://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=technology%20AND%20future&api-key=${APIKEY}`;
-const AI_URL = `https://content.guardianapis.com/technology?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=ai%20AND%20artificial%20intelligence&api-key=${APIKEY}`;
+const TECH_URL = `http://content.guardianapis.com/search?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=technology%20AND%20future&api-key=${APIKEY}`;
+const AI_URL = `https://content.guardianapis.com/search?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=ai%20AND%20robots&api-key=${APIKEY}`;
 const HEALTH_URL = `https://content.guardianapis.com/search?page-size=10&section=lifeandstyle&show-fields=headline,thumbnail,trailText&q=health%20AND%20longevity&api-key=${APIKEY}`;
-const ENTERTAINMENT_URL = `http://content.guardianapis.com/search?order-by=newest&show-fields=headline,thumbnail,trailText&q=movies%20AND%20hollywood&api-key=${APIKEY}`;
+const ENTERTAINMENT_URL = `https://content.guardianapis.com/search?page-size=10&order-by=newest&show-fields=headline,thumbnail,trailText&q=entertainment%20AND%20movies&api-key=${APIKEY}`;
 
 // for space in browswer %20 used by many apis
 

@@ -25,11 +25,11 @@ const ArticleCard = ({
         />
       </div>
       <div className={styles.info}>
-        <p>{sectionName}</p>
-        <h4>{webTitle}</h4>
-        <p>{fields.trailText}</p>
+        <p className={styles.sec}>{sectionName}</p>
+        <h4 className={styles.title}>{webTitle}</h4>
+        <p className={styles.text}>{fields.trailText}</p>
       </div>
-      <p>{`${tags?.[0].firstName}`}</p>
+     {/*  <p>{`${tags?.[0].firstName}`}</p> */}
     </div>
   );
 };
