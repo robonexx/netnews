@@ -15,7 +15,9 @@ const SmallArticleCard: React.FC<guardianNewsType> = ({
   return (
     <div className={styles.wrapper}>
       <Link key={id} href={`/${id}`} rel='preload' as={`/${id}`}></Link>
-      <p className={styles.date}>{webPublicationDate ? convertDate(webPublicationDate) : ''}</p>
+      <p className={styles.date}>
+        {webPublicationDate ? convertDate(webPublicationDate) : ''}
+      </p>
       <div className={styles.info}>
         <h4 className={styles.title}>{webTitle}</h4>
         <p className={styles.text}>{fields.trailText}</p>
@@ -26,6 +28,7 @@ const SmallArticleCard: React.FC<guardianNewsType> = ({
           alt='news image'
           src={fields?.thumbnail || IMG}
           fill
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           priority
           className={styles.img}
         />

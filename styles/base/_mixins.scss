@@ -1,6 +1,24 @@
-@mixin flexRowEvenly (){
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
-}
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+ }
+
+ @mixin horizonal-center {
+    position: relative;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+ }
+
+ @mixin center-center {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translateX(-50%, -50%);
+    transform: translateX(-50%, -50%);
+ }

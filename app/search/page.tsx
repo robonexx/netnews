@@ -46,13 +46,13 @@ const Search = () => {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <>
-          {newsData.map((article: guardianNewsType) => (
+        <div className={styles.result_wrapper}>
+          {newsData && newsData.map((article: guardianNewsType) => (
             <div key={article.id}>
               <ArticleCard {...article} />
             </div>
           ))}
-        </>
+        </div>
       )}
     </div>
   );

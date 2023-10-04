@@ -91,12 +91,12 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
                       src={article.fields.thumbnail}
                       alt='Article media'
                       fill
+                      sizes='(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 75vw'
                       priority
                     />
                   </div>
                 ) : (
-                  <div>
-                  </div>
+                  <div></div>
                 )}
               </div>
               <div className={styles.author}>

@@ -3,12 +3,15 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 4rem 2rem 0;
+  padding: 4rem 1rem 0;
   color: $color-client-3;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   @media (min-width: 768px) {
+    padding: 4rem 2rem 0;
     margin: 0 auto;
     max-width: 900px;
   }
@@ -25,8 +28,12 @@
       width: 80%;
     }
 
-    .title, .desc, .data, .author, .content {
-      padding: 0 0.75rem
+    .title,
+    .desc,
+    .data,
+    .author,
+    .content {
+      padding: 0 0.75rem;
     }
 
     .title {
@@ -48,11 +55,12 @@
     max-width: 100%;
 
     .img {
-     width: 100svw;
+      position: relative;
+      width: 90svw;
       height: 40vh;
 
       @media (min-width: 768px) {
-        width: 500px;
+        width: 100%;
       }
 
       > img {

@@ -20,6 +20,7 @@ const ArticleCard = ({
           alt='news image'
           src={fields?.thumbnail || IMG}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 28vw"
           priority
           className={styles.img}
         />
