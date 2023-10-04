@@ -2,7 +2,6 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { guardianNewsType } from '@/lib/types/Types';
-import { randomKey } from '@/lib/utils/randomKey';
 import ArticleCard from '../../components/articleCard/ArticleCard';
 import Headline from '../../components/headline/Headline';
 // styles

@@ -9,6 +9,8 @@ import { getSingleArticle } from '@/lib/api-routes';
 import { guardianNewsType } from '@/lib/types/Types';
 import { HighlightedText } from '@/components/highlightedText/HighlightedText';
 
+// i let the commented out code stay, I used use effect but due to next js 13 id dont have to. :D
+
 const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
   const formattedUrl = (urlArray: []) => urlArray.join('/');
   /* const [news, setNews] = useState<guardianNewsType[]>([]); */
@@ -21,18 +23,9 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
   /*  useEffect(() => {
     const fetchNews = async () => {
       try {
-        const data = await getTopGuardianNews();
+        const data = await getSingleArticle(id);
         console.log('from single', data.response.results)
-        setNews((prevNews) => [...prevNews, ...data.response.results]);
-        const dataE = await getEntertainment();
-        setNews((prevNews) => [...prevNews, ...dataE.response.results]);
-        const dataT = await getTech();
-        setNews((prevNews) => [...prevNews, ...dataT.response.results]);
-        const dataH = await getHealth();
-        setNews((prevNews) => [...prevNews, ...dataH.response.results]);
-        const dataA = await getAINews();
-        setNews((prevNews) => [...prevNews, ...dataA.response.results]);
-
+        setNews(data.response.results);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching news:', error);
@@ -43,29 +36,7 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
     fetchNews();
   }, []);
  */
-  /*  let id = params?.id;
-  if (!id) {
-    // Handle the case where id is undefined
-    return <div>No ID provided</div>;
-  } */
-
-  /* id = id.replace('/', '');
-  console.log('path id', id); */
-
-  /* if (loading) {
-    return <div>Loading...</div>;
-  } */
-
-  /* console.log('Type of news:', typeof news);
-  const article =
-    news && news.length !== 0 ? news.find((item) => item.id === id) : null;
-
-  console.log('filtered news', article);
-  // Check if the news with the specified id is found
-  if (!article) {
-    return <div>No matching news found</div>;
-  }
-*/
+  
   const publishedDate = article.webPublicationDate || '';
   const formattedDate = convertDate(publishedDate);
 
