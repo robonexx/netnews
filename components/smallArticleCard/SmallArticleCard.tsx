@@ -15,10 +15,10 @@ const SmallArticleCard: React.FC<guardianNewsType> = ({
   return (
     <div className={styles.wrapper}>
       <Link key={id} href={`/${id}`} rel='preload' as={`/${id}`}></Link>
-      <p>{webPublicationDate ? convertDate(webPublicationDate) : ''}</p>
+      <p className={styles.date}>{webPublicationDate ? convertDate(webPublicationDate) : ''}</p>
       <div className={styles.info}>
         <h4 className={styles.title}>{webTitle}</h4>
-        <p>{fields.trailText}</p>
+        <p className={styles.text}>{fields.trailText}</p>
       </div>
       <div className={styles.border}></div>
       <div className={styles.img}>
