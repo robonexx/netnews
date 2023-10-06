@@ -48,7 +48,7 @@ export const navData: NavItemProps[] = [
     closeMobileMenu: () => {},
   },
   {
-    title: 'enternainment',
+    title: 'entertainment',
     path: '/enternainment',
     id: 5,
     img: Link5Img,
