@@ -18,18 +18,18 @@ interface NavItemProps {
 
 export default function Nav() {
   const [active, setActive] = useState(false);
-  /*  const pathname = usePathname(); */
 
   const closeMobileMenu = useCallback(() => {
     setActive(false);
   }, []);
+
 
   return (
     <>
       <nav className={`${styles.nav} ${active ? styles.open : ''}`}>
         <ul className={`${styles.menu} ${active ? styles.open : ''}`}>
           {navData.map(
-            ({ title, path, id, img, i, closeMobileMenu }: NavItemProps) => (
+            ({ title, path, id, img, i }: NavItemProps) => (
               <NavItem
                 key={id}
                 title={title}

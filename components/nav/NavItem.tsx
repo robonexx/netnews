@@ -19,7 +19,7 @@ const NavItem: React.FC<NavItemProps> = ({
   id,
   img,
   i,
-  closeMobileMenu,
+  closeMobileMenu
 }) => {
   return (
     <motion.li
