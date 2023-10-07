@@ -49,7 +49,7 @@ export const navData: NavItemProps[] = [
   },
   {
     title: 'entertainment',
-    path: '/enternainment',
+    path: '/entertainment',
     id: 5,
     img: Link5Img,
     i: 4,
