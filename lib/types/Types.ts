@@ -18,6 +18,8 @@ export interface guardianNewsType {
   }[];
 }
 
+
+// news api types, used before i swtiched to guardian news, might try out the other or mix them both at a later update
 export interface newsType {
   source: {
     id: string;
@@ -46,6 +48,8 @@ export type NewsItem = {
     url: string;
   }
   
+
+  // not using these, but keeping them for future use, to when i update this project
   export type Pagination = {
     count: number;
     limit: number;

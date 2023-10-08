@@ -1,24 +1,31 @@
 import { FC } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-//styles
-import styles from './article.module.scss';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { convertDate } from '@/lib/utils/convertDate';
 import { getSingleArticle } from '@/lib/api-routes';
 import { guardianNewsType } from '@/lib/types/Types';
 import { HighlightedText } from '@/components/highlightedText/HighlightedText';
 
-// i let the commented out code stay, I used use effect but due to next js 13 id dont have to. :D
+//styles
+import styles from './article.module.scss';
 
-const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
+interface ArticleProps {
+  params: { id: [] };
+}
+
+const Article: FC<ArticleProps> = async ({ params }) => {
   const formattedUrl = (urlArray: []) => urlArray.join('/');
   /* const [news, setNews] = useState<guardianNewsType[]>([]); */
   /*  const [loading, setLoading] = useState<boolean>(true); */
   const id = formattedUrl(params.id);
   const data = await getSingleArticle(id);
 
-  const article = await data.response.content;
+  const article: guardianNewsType = await data.response.content;
+
+  console.log(article);
+
+  /* I used fetch but then no need to in next js 13 */
 
   /*  useEffect(() => {
     const fetchNews = async () => {
@@ -36,7 +43,7 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
     fetchNews();
   }, []);
  */
-  
+
   const publishedDate = article.webPublicationDate || '';
   const formattedDate = convertDate(publishedDate);
 
@@ -71,11 +78,17 @@ const Article: FC<{ params: { id: [] } }> = async ({ params }) => {
                 )}
               </div>
               <div className={styles.author}>
-                <HighlightedText
-                  title={`By: ${article.fields.firstName} ${article.fields.lastName}`}
-                />
+                {article.tags && article.tags.length > 0 && (
+                  <HighlightedText
+                    title={`By: ${article.tags
+                      .filter((tag) => tag.firstName && tag.lastName)
+                      .map((tag) => `${tag.firstName} ${tag.lastName}`)
+                      .join(', ')}`}
+                  />
+                )}
               </div>
               <hr className={styles.divider} />
+              {/* if i wanna extract the content from the body which is in html tags... */}
               {/* <div
                 className={styles.content}
                 dangerouslySetInnerHTML={{ __html: article.fields.body }}

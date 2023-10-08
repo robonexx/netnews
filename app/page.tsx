@@ -10,7 +10,9 @@ import AiNews from '../components/news/AiNews';
 const Home: React.FC = async () => {
   return (
     <main className={styles.main}>
-      <h1>NET NEWS</h1>
+      <h1>
+        <Headline title='NET NEWS' />
+      </h1>
       <p>Gathering the latest new in one place</p>
       <div className={styles.section}>
         <Hero />
