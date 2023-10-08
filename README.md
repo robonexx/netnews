@@ -1,7 +1,7 @@
 # NET NEWS
 
-
 ## Assignment at CME use of Typescript, for styling sass, tailwind or styledcomponents 😀
+### Use useState and useEffect hooks
 
 For this project I used the GUARDIAN API [Link to Guardian api](https://open-platform.theguardian.com/)
 
@@ -11,9 +11,9 @@ For this project I used the GUARDIAN API [Link to Guardian api](https://open-pla
 ## Bugs and fixes
 - Images sometimes give warning when downloaded from the api
 - some stuttering on pages
-- if api rate limit is reached it will give an error and not fetch the info,
+- if api rate limit is reached it will give an error and not fetch the info api  limit 500 calls / day,
 could be fixed with a backup on an other server, but that is for an other project. 
-- I used the News Api first but it dident have a way to get the content if not using something like webscraping and i dident have time (sadly had covid so not my most productive period)
+- I used the News Api first but it dident have a way to get the content if not using something like webscraping and i dident have enough time 
 
 Typescript is growing on me, I like it a lot. 
 Still on my own projects i probably use just js, it makes a lot of stuff easier if working with things like animations, framer-motion etc. 🚀 BIG LIKE
