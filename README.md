@@ -7,7 +7,15 @@ For this project I used the GUARDIAN API [Link to Guardian api](https://open-pla
 ## Project Preview
 [You can try the demo here](https://netnews.vercel.app/)
 
-## Bugs and fixes
+## If you want to try it out
+You can clone the repo or fork it
+You have to create an .env file - add NEXT_PUBLIC_APIKEY='<YOUR-API-KEY>'
+Get you own api key at https://open-platform.theguardian.com/
+
+Have fun!
+
+
+## Bugs and fixes I stumbeled up on
 - Images sometimes give warning when downloaded from the api
 - some stuttering on pages
 - if api rate limit is reached it will give an error and not fetch the info api  limit 500 calls / day,
