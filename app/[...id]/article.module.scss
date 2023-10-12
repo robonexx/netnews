@@ -1,0 +1,151 @@
+@use '../../styles/base/' as *;
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 1rem 0;
+  color: $color-client-3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 4rem 2rem 0;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .content_wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      width: 80%;
+    }
+
+    .title,
+    .desc,
+    .data,
+    .author,
+    .content {
+      padding: 0 0.75rem;
+    }
+
+    .title {
+      margin: 1rem 0;
+    }
+
+    .date {
+      position: relative;
+      font-size: 12px;
+      line-height: 31px;
+      letter-spacing: 0.83px;
+      text-transform: uppercase;
+    }
+  }
+
+  .media_wrapper {
+    position: relative;
+    margin: 0.5rem 0;
+    max-width: 100%;
+
+    .img {
+      position: relative;
+      width: 90svw;
+      height: 40vh;
+
+      @media (min-width: 768px) {
+        width: 100%;
+      }
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .divider {
+    margin: 0.25rem 0;
+    opacity: 0.5;
+    border: 0;
+    height: 0;
+    border-top: 1px solid #979797;
+  }
+
+  .content {
+    padding: 0 1rem;
+    margin: 4rem 0;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+
+    p {
+      margin: 1rem 0;
+    }
+
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
+
+    figcaption {
+      font-style: italic;
+    }
+  }
+
+  .author {
+    position: relative;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.3px;
+    mix-blend-mode: normal;
+    color: #888;
+  }
+
+  .overlay {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 540px;
+    height: 300px;
+    padding: 0 15px;
+    background-size: 100% 100%;
+
+    .logo {
+      display: block;
+      width: 100%;
+      height: 50%;
+      background-size: 100% 100%;
+      background: linear-gradient(120deg, #121212, #282828);
+    }
+  }
+
+  .gu-image {
+    width: 300px !important;
+    height: 260px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 100%;
+    flex-direction: column;
+
+    .content_wrapper,
+    .media_wrapper {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .media_wrapper {
+    margin-top: 20px;
+  }
+}
